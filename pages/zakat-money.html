@@ -1,46 +1,109 @@
-<!-- pages/zakat-money.html (نموذج مع رابط البحث المخصص) -->
+<!-- pages/zakat-money.html - النسخة النهائية الكاملة -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>زكاة المال · GT-ZAKAT</title>
+    <!-- أيقونات متعددة المقاسات -->
     <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/GT-ZAKAT/GT-ZAKAT-logo/192x192/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/GT-ZAKAT/GT-ZAKAT-logo/128x128/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/GT-ZAKAT/GT-ZAKAT-logo/256x256/gt-zakat-logo.png">
     <link rel="apple-touch-icon" href="/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png">
+    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- ملف CSS الرئيسي -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- ربط manifest (بدون شرطة مائلة) -->
+    <link rel="manifest" href="../manifest.json">
+    <style>
+        /* أنماط إضافية للأزرار */
+        .more-info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--md-primary);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: var(--shadow);
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .more-info-btn:hover {
+            background: var(--md-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .more-info-btn .material-icons-round {
+            font-size: 1.2rem;
+        }
+        
+        [dir="ltr"] .more-info-btn {
+            flex-direction: row-reverse;
+        }
+    </style>
 </head>
 <body data-theme="auto">
     <header class="app-bar">
         <div class="container">
             <div class="logo-area">
                 <a href="../index.html" class="logo-link">
-                    <img src="/GT-ZAKAT/gt-zakat-logo.png" alt="GT-ZAKAT" class="logo-img" style="height: 48px; width: auto;">
+                    <span class="material-icons-round logo-icon">account_balance</span>
                     <span class="logo-text">GT-ZAKAT</span>
                 </a>
                 <span class="tagline" data-i18n="tagline">مرجع زكاة المسلم</span>
             </div>
             <div class="actions">
-                <button class="action-btn" id="themeToggle"><span class="material-icons-round">dark_mode</span></button>
+                <button class="action-btn" id="themeToggle">
+                    <span class="material-icons-round">dark_mode</span>
+                </button>
                 <button class="lang-toggle" id="langToggle">English</button>
             </div>
         </div>
     </header>
 
     <main class="container">
+        <!-- أزرار التنقل بين الصفحات -->
         <div class="page-navigation">
-            <a href="zakat-fitrah.html" class="nav-button"><span class="material-icons-round">arrow_right</span><span data-i18n="prevPage">السابق: زكاة الفطر</span></a>
-            <a href="zakat-gold.html" class="nav-button"><span data-i18n="nextPage">التالي: الذهب والفضة</span><span class="material-icons-round">arrow_left</span></a>
+            <a href="zakat-fitrah.html" class="nav-button">
+                <span class="material-icons-round">arrow_right</span>
+                <span data-i18n="prevPage">السابق: زكاة الفطر</span>
+            </a>
+            <a href="zakat-gold.html" class="nav-button">
+                <span data-i18n="nextPage">التالي: الذهب والفضة</span>
+                <span class="material-icons-round">arrow_left</span>
+            </a>
         </div>
 
         <div class="card">
-            <h1><span class="material-icons-round">payments</span> <span data-i18n="moneyTitle">زكاة المال (النقود)</span></h1>
+            <h1>
+                <span class="material-icons-round" style="font-size:2rem;">payments</span>
+                <span data-i18n="moneyTitle">زكاة المال (النقود)</span>
+            </h1>
             <div class="divider"></div>
+            
+            <!-- النصوص الشرعية -->
             <h2 data-i18n="quranHeading">📖 النصوص الشرعية</h2>
-            <p><strong data-i18n="quranVerse">الآية:</strong> <span data-i18n="verseMoney1">﴿خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا﴾</span> <a href="https://quran.com/9:103" target="_blank" class="source-link">(التوبة 103)</a></p>
-            <p><strong data-i18n="hadith">الحديث:</strong> <span data-i18n="hadithMoney1">«بني الإسلام على خمس ... وإيتاء الزكاة»</span> <a href="https://sunnah.com/bukhari:8" target="_blank" class="source-link">(البخاري 8)</a></p>
+            <p>
+                <strong data-i18n="quranVerse">الآية:</strong>
+                <span data-i18n="verseMoney1">﴿خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا﴾</span>
+                <a href="https://quran.com/9:103" target="_blank" class="source-link">(التوبة 103)</a>
+            </p>
+            <p>
+                <strong data-i18n="hadith">الحديث:</strong>
+                <span data-i18n="hadithMoney1">«بني الإسلام على خمس ... وإيتاء الزكاة»</span>
+                <a href="https://sunnah.com/bukhari:8" target="_blank" class="source-link">(البخاري 8)</a>
+            </p>
+            
+            <!-- آراء المذاهب الأربعة -->
             <h2 data-i18n="madhhabHeading">📜 آراء المذاهب الأربعة</h2>
             <ul style="list-style: none; padding-right:0;">
                 <li><strong>الحنفي:</strong> <span data-i18n="hanafiMoney">يجب في النقود إذا بلغت قيمتها نصاب الذهب (85 جراماً) أو الفضة (595 جراماً) فأكثر، وتضم النقود إلى الذهب والفضة في تكميل النصاب. والمخرج ربع العشر (2.5%).</span></li>
@@ -48,20 +111,37 @@
                 <li><strong>الشافعي:</strong> <span data-i18n="shafiiMoney">يضم الذهب والفضة والنقود بعضها إلى بعض في تكميل النصاب. ويعتبر الحول من تاريخ بلوغ النصاب.</span></li>
                 <li><strong>الحنبلي:</strong> <span data-i18n="hanbaliMoney">كالشافعي في الضم، وتقوم النقود بسعر الفضة في إخراج الزكاة إذا كان أرفق بالفقراء.</span></li>
             </ul>
+            
+            <!-- كيفية الحساب -->
             <h2 data-i18n="calculationHeading">⚖️ كيفية الحساب</h2>
-            <p data-i18n="calcMoney">إذا ملكت نقوداً بلغت قيمتها 85 جراماً من الذهب (حوالي ٧٬٥٠٠ ريال سعودي مثلاً) وحال عليها الحول الهجري، فأخرج 2.5% من قيمتها. يمكن استخدام حاسبة الزكاة في الصفحة الرئيسية.</p>
+            <p data-i18n="calcMoney">إذا ملكت نقوداً بلغت قيمتها 85 جراماً من الذهب (حوالي 7,500 ريال سعودي مثلاً) وحال عليها الحول الهجري، فأخرج 2.5% من قيمتها. يمكن استخدام حاسبة الزكاة في الصفحة الرئيسية.</p>
+            
+            <!-- فتاوى معاصرة مع زر الاستزادة -->
             <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
-            <p><span data-i18n="fatwaMoney">النقود الورقية تعامل معاملة الذهب والفضة في وجوب الزكاة، وتضم إلى سائر الأموال الزكوية.</span> <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D9%84" target="_blank" class="source-link">(المزيد في الإسلام سؤال وجواب)</a></p>
-            <p class="note"><span data-i18n="moreInfo">للاستزادة يمكنك زيارة:</span> <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D9%84" target="_blank">islamqa.info/search?q=زكاة+المال</a></p>
+            <p data-i18n="fatwaMoney">النقود الورقية تعامل معاملة الذهب والفضة في وجوب الزكاة، وتضم إلى سائر الأموال الزكوية.</p>
+            
+            <!-- زر للاستزادة (موحد في كل الصفحات) -->
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D9%84" target="_blank" class="more-info-btn" id="moreInfoBtn">
+                    <span class="material-icons-round">search</span>
+                    <span data-i18n="moreInfo">للاستزادة: المزيد من الفتاوى</span>
+                </a>
+            </div>
         </div>
     </main>
 
     <footer class="footer container">
-        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a><br><span data-i18n="developer">تطوير SalehGNUTUX · مشروع مفتوح المصدر</span></p>
+        <p>
+            <span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span>
+            <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a>
+            <br>
+            <span data-i18n="developer">تطوير SalehGNUTUX · مشروع مفتوح المصدر</span>
+        </p>
     </footer>
 
     <script>
         (function() {
+            // قاموس الترجمة الكامل
             const translations = {
                 tagline: { ar: "مرجع زكاة المسلم", en: "Muslim's Zakat Reference" },
                 prevPage: { ar: "السابق: زكاة الفطر", en: "Previous: Zakat al-Fitr" },
@@ -78,16 +158,18 @@
                 shafiiMoney: { ar: "يضم الذهب والفضة والنقود بعضها إلى بعض في تكميل النصاب. ويعتبر الحول من تاريخ بلوغ النصاب.", en: "Shafi'i: Gold, silver, and cash are combined to complete the nisab. The haul (lunar year) is counted from when nisab is reached." },
                 hanbaliMoney: { ar: "كالشافعي في الضم، وتقوم النقود بسعر الفضة في إخراج الزكاة إذا كان أرفق بالفقراء.", en: "Hanbali: Similar to Shafi'i in combining, and cash is valued at the price of silver when paying zakat if it is more beneficial to the poor." },
                 calculationHeading: { ar: "⚖️ كيفية الحساب", en: "⚖️ How to Calculate" },
-                calcMoney: { ar: "إذا ملكت نقوداً بلغت قيمتها 85 جراماً من الذهب (حوالي ٧٬٥٠٠ ريال سعودي مثلاً) وحال عليها الحول الهجري، فأخرج 2.5% من قيمتها. يمكن استخدام حاسبة الزكاة في الصفحة الرئيسية.", en: "If you own cash equivalent to 85 grams of gold (approx. 7,500 SAR) and a lunar year passes, pay 2.5% of its value. Use the zakat calculator on the homepage." },
+                calcMoney: { ar: "إذا ملكت نقوداً بلغت قيمتها 85 جراماً من الذهب (حوالي 7,500 ريال سعودي مثلاً) وحال عليها الحول الهجري، فأخرج 2.5% من قيمتها. يمكن استخدام حاسبة الزكاة في الصفحة الرئيسية.", en: "If you own cash equivalent to 85 grams of gold (approx. 7,500 SAR) and a lunar year passes, pay 2.5% of its value. Use the zakat calculator on the homepage." },
                 fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
                 fatwaMoney: { ar: "النقود الورقية تعامل معاملة الذهب والفضة في وجوب الزكاة، وتضم إلى سائر الأموال الزكوية.", en: "Paper currency is treated like gold and silver regarding zakat, and it is combined with other zakatable assets." },
-                moreInfo: { ar: "للاستزادة يمكنك زيارة:", en: "For more info visit:" },
+                moreInfo: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
                 footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" },
                 developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
             };
+
             const themeToggle = document.getElementById('themeToggle');
             const langToggle = document.getElementById('langToggle');
             let currentLang = 'ar';
+
             function setTheme(theme) {
                 if (theme === 'auto') {
                     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -101,26 +183,49 @@
                 const current = document.documentElement.getAttribute('data-theme');
                 document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
             });
+
             function applyLanguage(lang) {
                 currentLang = lang;
                 document.documentElement.lang = lang;
                 document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
                 langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
+
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[key] && translations[key][lang]) {
-                        if (el.tagName === 'A' && el.classList.contains('nav-button')) {} else {
+                        if (el.tagName === 'A' && el.classList.contains('nav-button')) {
+                            // معالجة خاصة لأزرار التنقل
+                        } else {
                             el.innerText = translations[key][lang];
                         }
                     }
                 });
+
                 document.querySelectorAll('.nav-button span[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
-                    if (translations[key] && translations[key][lang]) el.innerText = translations[key][lang];
+                    if (translations[key] && translations[key][lang]) {
+                        el.innerText = translations[key][lang];
+                    }
                 });
+
+                // تحديث زر المزيد
+                const moreInfoBtn = document.getElementById('moreInfoBtn');
+                const moreInfoSpan = moreInfoBtn.querySelector('span[data-i18n]');
+                if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
+                    moreInfoSpan.innerText = translations.moreInfo[lang];
+                }
             }
+
             applyLanguage('ar');
-            langToggle.addEventListener('click', () => applyLanguage(currentLang === 'ar' ? 'en' : 'ar'));
+            langToggle.addEventListener('click', () => {
+                applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                if (!el.hasAttribute('data-ar')) {
+                    el.setAttribute('data-ar', el.innerText.trim());
+                }
+            });
         })();
     </script>
 </body>

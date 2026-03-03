@@ -1,0 +1,250 @@
+<!-- index.html - النسخة النهائية مع الشعار النصي وأيقونات المعلومات -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT-ZAKAT · مرجع زكاة المسلم</title>
+    <!-- شعار التبويب (favicon) بصيغة PNG من المسار المطلوب -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/GT-ZAKAT/GT-ZAKAT-logo/192x192/gt-zakat-logo.png">
+    <link rel="apple-touch-icon" href="/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- ملف CSS الرئيسي -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- manifest للتطبيق (اختياري) -->
+    <link rel="manifest" href="manifest.json">
+</head>
+<body data-theme="auto">
+    <header class="app-bar">
+        <div class="container">
+            <div class="logo-area">
+                <a href="/" class="logo-link" id="logoHome">
+                    <!-- شعار نصي وأيقونة Material (بدون صورة خارجية) -->
+                    <span class="material-icons-round logo-icon">account_balance</span>
+                    <span class="logo-text">GT-ZAKAT</span>
+                </a>
+                <span class="tagline" data-i18n="tagline">مرجع زكاة المسلم</span>
+            </div>
+            <div class="actions">
+                <button class="action-btn" id="themeToggle">
+                    <span class="material-icons-round">dark_mode</span>
+                </button>
+                <button class="lang-toggle" id="langToggle">English</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <span class="badge" data-i18n="since">منذ 2026 · المرجع الشامل للزكاة</span>
+            <h1 data-i18n="headline">GT-ZAKAT · زكاتك بين يديك</h1>
+            <p data-i18n="subheadline">احسب زكاتك بدقة مع تحديث لحظي لأسعار الذهب والفضة حسب عملة بلدك</p>
+        </div>
+
+        <!-- بطاقات أنواع الزكاة -->
+        <h2 style="margin: 30px 0 20px;" data-i18n="zakatTypesHeading">اختر نوع الزكاة للتفاصيل:</h2>
+        <div class="zakat-cards-grid" id="zakatCards">
+            <div class="zakat-card" onclick="window.location.href='pages/zakat-money.html'">
+                <span class="material-icons-round">payments</span>
+                <h3 data-i18n="moneyOption">زكاة المال</h3>
+                <p data-i18n="moneyDesc">النقود والمدخرات</p>
+            </div>
+            <div class="zakat-card" onclick="window.location.href='pages/zakat-gold.html'">
+                <span class="material-icons-round">circle</span>
+                <h3 data-i18n="goldOption">الذهب والفضة</h3>
+                <p data-i18n="goldDesc">الحلي والسبائك</p>
+            </div>
+            <div class="zakat-card" onclick="window.location.href='pages/zakat-grains.html'">
+                <span class="material-icons-round">grass</span>
+                <h3 data-i18n="grainsOption">الحبوب والثمار</h3>
+                <p data-i18n="grainsDesc">الزروع والتمور</p>
+            </div>
+            <div class="zakat-card" onclick="window.location.href='pages/zakat-salary.html'">
+                <span class="material-icons-round">work</span>
+                <h3 data-i18n="salaryOption">زكاة الراتب</h3>
+                <p data-i18n="salaryDesc">الرواتب المدخرة</p>
+            </div>
+            <div class="zakat-card" onclick="window.location.href='pages/zakat-trade.html'">
+                <span class="material-icons-round">store</span>
+                <h3 data-i18n="tradeOption">عروض التجارة</h3>
+                <p data-i18n="tradeDesc">البضائع والأسهم</p>
+            </div>
+            <div class="zakat-card" onclick="window.location.href='pages/zakat-fitrah.html'">
+                <span class="material-icons-round">restaurant</span>
+                <h3 data-i18n="fitrahOption">زكاة الفطر</h3>
+                <p data-i18n="fitrahDesc">صدقة الفطر</p>
+            </div>
+        </div>
+
+        <!-- بطاقة الحاسبة الشاملة -->
+        <div class="card calculator-card">
+            <h2>
+                <span class="material-icons-round">calculate</span>
+                <span data-i18n="calculatorTitle">حاسبة الزكاة الشاملة</span>
+            </h2>
+
+            <!-- تبويب المذاهب -->
+            <div class="madhhab-tabs" id="madhhabTabs">
+                <button class="madhhab-tab active" data-madhhab="maliki" data-i18n="malikiTab">مالكي</button>
+                <button class="madhhab-tab" data-madhhab="hanafi" data-i18n="hanafiTab">حنفي</button>
+                <button class="madhhab-tab" data-madhhab="shafii" data-i18n="shafiiTab">شافعي</button>
+                <button class="madhhab-tab" data-madhhab="hanbali" data-i18n="hanbaliTab">حنبل</button>
+            </div>
+
+            <!-- اختيار العملة -->
+            <label data-i18n="selectCountry">اختر الدولة / العملة:</label>
+            <select id="currencySelect" class="currency-select">
+                <!-- المغرب العربي -->
+                <optgroup label="🇲🇦 المغرب العربي">
+                    <option value="MAD" data-country="ma" data-gold-carats="18" data-gold-price="500" data-silver-price="26" data-preferred-nisab="silver" data-madhhab="maliki">🇲🇦 المغرب - درهم مغربي (MAD)</option>
+                    <option value="DZD" data-country="dz" data-gold-carats="18" data-gold-price="19000" data-silver-price="210" data-madhhab="hanafi">🇩🇿 الجزائر - دينار جزائري (DZD)</option>
+                    <option value="TND" data-country="tn" data-gold-price="78" data-silver-price="1.2" data-madhhab="maliki">🇹🇳 تونس - دينار تونسي (TND)</option>
+                    <option value="LYD" data-country="ly" data-gold-price="1679" data-silver-price="27.5" data-madhhab="maliki">🇱🇾 ليبيا - دينار ليبي (LYD)</option>
+                    <option value="MRU" data-country="mr" data-gold-carats="21" data-gold-price="49920" data-silver-price="820" data-madhhab="maliki">🇲🇷 موريتانيا - أوقية موريتانية (MRU)</option>
+                </optgroup>
+                <!-- وادي النيل -->
+                <optgroup label="🇪🇬 وادي النيل">
+                    <option value="EGP" data-country="eg" data-gold-carats="21" data-gold-price="3000" data-silver-price="45" data-madhhab="shafii">🇪🇬 مصر - جنيه مصري (EGP)</option>
+                    <option value="SDG" data-country="sd" data-gold-price="420000" data-silver-price="7000" data-madhhab="hanafi">🇸🇩 السودان - جنيه سوداني (SDG)</option>
+                </optgroup>
+                <!-- شبه الجزيرة -->
+                <optgroup label="🇸🇦 شبه الجزيرة">
+                    <option value="SAR" data-country="sa" data-gold-carats="24" data-gold-price="385" data-silver-price="6.5" data-madhhab="hanbali">🇸🇦 السعودية - ريال سعودي (SAR)</option>
+                    <option value="KWD" data-country="kw" data-gold-carats="24" data-gold-price="31" data-silver-price="0.52" data-madhhab="maliki">🇰🇼 الكويت - دينار كويتي (KWD)</option>
+                    <option value="QAR" data-country="qa" data-gold-carats="24" data-gold-price="340" data-silver-price="5.7" data-madhhab="hanbali">🇶🇦 قطر - ريال قطري (QAR)</option>
+                    <option value="AED" data-country="ae" data-gold-carats="24" data-gold-price="350" data-silver-price="5.9" data-madhhab="shafii">🇦🇪 الإمارات - درهم إماراتي (AED)</option>
+                    <option value="OMR" data-country="om" data-gold-carats="24" data-gold-price="36" data-silver-price="0.6" data-madhhab="ibadi">🇴🇲 عمان - ريال عماني (OMR)</option>
+                    <option value="BHD" data-country="bh" data-gold-carats="24" data-gold-price="35" data-silver-price="0.59" data-madhhab="maliki">🇧🇭 البحرين - دينار بحريني (BHD)</option>
+                    <option value="YER" data-country="ye" data-gold-carats="24" data-gold-price="100000" data-silver-price="1700" data-madhhab="shafii">🇾🇪 اليمن - ريال يمني (YER)</option>
+                </optgroup>
+                <!-- الهلال الخصيب -->
+                <optgroup label="🇮🇶 الهلال الخصيب">
+                    <option value="IQD" data-country="iq" data-gold-carats="24" data-gold-price="75000" data-silver-price="1250" data-madhhab="hanafi">🇮🇶 العراق - دينار عراقي (IQD)</option>
+                    <option value="JOD" data-country="jo" data-gold-carats="24" data-gold-price="63" data-silver-price="1.05" data-madhhab="shafii">🇯🇴 الأردن - دينار أردني (JOD)</option>
+                    <option value="SYP" data-country="sy" data-gold-carats="24" data-gold-price="15000" data-silver-price="250" data-madhhab="hanafi">🇸🇾 سوريا - ليرة سورية (SYP)</option>
+                    <option value="LBP" data-country="lb" data-gold-carats="24" data-gold-price="900000" data-silver-price="15000" data-madhhab="shafii">🇱🇧 لبنان - ليرة لبنانية (LBP)</option>
+                    <option value="PS" data-country="ps" data-gold-carats="24" data-gold-price="340" data-silver-price="5.7" data-madhhab="shafii">🇵🇸 فلسطين - شيكل (ILS)</option>
+                </optgroup>
+                <!-- العملات العالمية -->
+                <optgroup label="🌍 العملات العالمية">
+                    <option value="USD" data-country="us" data-gold-carats="24" data-gold-price="86" data-silver-price="1.1">🇺🇸 دولار أمريكي (USD)</option>
+                    <option value="EUR" data-country="eu" data-gold-carats="24" data-gold-price="92" data-silver-price="1.2">🇪🇺 يورو (EUR)</option>
+                </optgroup>
+            </select>
+
+            <!-- خيار الإدخال اليدوي -->
+            <div style="margin: 16px 0;">
+                <button class="toggle-manual-btn" id="toggleManualBtn" type="button">
+                    <span class="material-icons-round" style="font-size: 1.2rem; vertical-align: middle;">edit</span>
+                    <span data-i18n="manualPriceToggle">إدخال سعر يدوي</span>
+                </button>
+            </div>
+
+            <div id="manualPriceSection" style="display: none;">
+                <div class="manual-price-input">
+                    <label data-i18n="manualGoldPrice">سعر جرام الذهب (بعملتك المحلية):</label>
+                    <input type="number" id="manualGoldPrice" step="0.01" placeholder="0.00">
+                </div>
+                <div class="manual-price-input">
+                    <label data-i18n="manualSilverPrice">سعر جرام الفضة (بعملتك المحلية):</label>
+                    <input type="number" id="manualSilverPrice" step="0.01" placeholder="0.00">
+                </div>
+                <p class="note" data-i18n="manualNote">* سيتم استخدام الأسعار اليدوية بدلاً من التحديث التلقائي</p>
+            </div>
+
+            <!-- حقول الإدخال مع أيقونات معلومات -->
+            <div style="display: flex; align-items: center; gap: 8px; margin: 8px 0 0;">
+                <label data-i18n="cashLabel">النقد (بالعملة)</label>
+                <span class="tooltip">
+                    <span class="material-icons-round" style="font-size: 1.2rem; color: var(--md-primary);">info</span>
+                    <span class="tooltip-text" data-i18n="cashTooltip">المبلغ النقدي الذي تملكه من نقود ورقية أو معدنية أو أرصدة بنكية. يحول إلى عملتك المحلية ويدخل في حساب الزكاة.</span>
+                </span>
+            </div>
+            <input type="number" id="cashInput" class="input-field" placeholder="0.00" value="5000">
+
+            <div style="display: flex; align-items: center; gap: 8px; margin: 8px 0 0;">
+                <label data-i18n="goldLabel">الذهب (جرام)</label>
+                <span class="tooltip">
+                    <span class="material-icons-round" style="font-size: 1.2rem; color: var(--md-primary);">info</span>
+                    <span class="tooltip-text" data-i18n="goldTooltip">وزن الذهب الذي تملكه بالجرام، سواء كان سبائك أو حلياً (مع مراعاة خلاف المذاهب في حلي الزينة). يحسب بقيمته السوقية.</span>
+                </span>
+            </div>
+            <input type="number" id="goldInput" class="input-field" value="0" step="0.1">
+
+            <div style="display: flex; align-items: center; gap: 8px; margin: 8px 0 0;">
+                <label data-i18n="silverLabel">الفضة (جرام)</label>
+                <span class="tooltip">
+                    <span class="material-icons-round" style="font-size: 1.2rem; color: var(--md-primary);">info</span>
+                    <span class="tooltip-text" data-i18n="silverTooltip">وزن الفضة الذي تملكه بالجرام. تدخل في حساب الزكاة بنفس أحكام الذهب، وغالباً ما يكون نصابها أقل.</span>
+                </span>
+            </div>
+            <input type="number" id="silverInput" class="input-field" value="0" step="1">
+
+            <div style="display: flex; align-items: center; gap: 8px; margin: 8px 0 0;">
+                <label data-i18n="tradeGoodsLabel">قيمة عروض التجارة</label>
+                <span class="tooltip">
+                    <span class="material-icons-round" style="font-size: 1.2rem; color: var(--md-primary);">info</span>
+                    <span class="tooltip-text" data-i18n="tradeGoodsTooltip">عروض التجارة: البضائع المعدة للبيع، الأسهم، العقارات التجارية، وأي سلع تم شراؤها بقصد الاتجار. إذا بلغت قيمتها مع النقود النصاب وحال الحول، فتجب الزكاة 2.5%</span>
+                </span>
+            </div>
+            <input type="number" id="tradeInput" class="input-field" value="0" step="0.01" placeholder="0.00">
+
+            <!-- معلومات النصاب -->
+            <div class="nisab-info">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <p><strong data-i18n="nisabInfo">📊 معلومات النصاب:</strong></p>
+                    <div>
+                        <span class="price-source-badge" id="priceSource">تلقائي</span>
+                        <span class="price-source-badge" id="updateStatus">✓ محدث</span>
+                    </div>
+                </div>
+                <p><span data-i18n="nisabGold">نصاب الذهب (85 جرام):</span> <strong><span id="nisabGoldDisplay">42,500</span></strong> <span id="nisabGoldCurrency">درهم مغربي</span> <span id="goldCaratInfo">(عيار 18)</span></p>
+                <p><span data-i18n="nisabSilver">نصاب الفضة (595 جرام):</span> <strong><span id="nisabSilverDisplay">15,470</span></strong> <span id="nisabSilverCurrency">درهم مغربي</span></p>
+                <p id="preferredNisabRow"><span class="material-icons-round" style="font-size:1rem; color:gold;">star</span> <span data-i18n="preferredNisab">النصاب الأحوط (الفضة):</span> <strong><span id="preferredNisabDisplay">15,470</span></strong> <span id="preferredNisabCurrency">درهم مغربي</span></p>
+                <p class="note" id="countrySpecificNote" data-i18n="maNote">* المغرب: يُفضل اعتبار نصاب الفضة (حوالي 2,600 درهم) توسعةً على الفقراء .</p>
+                <p class="note" style="color: var(--md-primary);" id="lastUpdateNote">آخر تحديث: 3/3/2026, 03:00 م</p>
+            </div>
+
+            <button class="btn" id="calculateBtn"><span data-i18n="calculate">احسب زكاتك بدقة</span></button>
+            <div class="result-box" id="resultDisplay"></div>
+        </div>
+
+        <!-- بطاقة المصادر -->
+        <div class="card sources-card">
+            <h2><span class="material-icons-round">menu_book</span> <span data-i18n="madhhabTitle">المذاهب الأربعة</span></h2>
+            <div class="madhhab-info">
+                <p><strong>1. المالكي:</strong> <span data-i18n="malikiDesc">ينتشر في المغرب العربي، يعتبر نصاب الفضة أحوط .</span></p>
+                <p><strong>2. الحنفي:</strong> <span data-i18n="hanafiDesc">ينتشر في المشرق، يعتبر نصاب الذهب .</span></p>
+                <p><strong>3. الشافعي:</strong> <span data-i18n="shafiiDesc">ينتشر في مصر وجنوب شرق آسيا، يضم الذهب والفضة .</span></p>
+                <p><strong>4. الحنبلي:</strong> <span data-i18n="hanbaliDesc">ينتشر في السعودية، يضم الجميع .</span></p>
+            </div>
+            <div class="divider"></div>
+            <h3 data-i18n="sourcesTitle">نصوص وأدلة كاملة</h3>
+            <ul id="sourcesList">
+                <li>🔗 <a href="https://quran.com/9:103" target="_blank" class="source-link" data-i18n="source1">آية الزكاة (التوبة 103)</a></li>
+                <li>🔗 <a href="https://sunnah.com/bukhari:8" target="_blank" class="source-link" data-i18n="source2">حديث بني الإسلام (البخاري 8)</a></li>
+                <li>🔗 <a href="https://islamqa.info/ar" target="_blank" class="source-link" data-i18n="source3">الإسلام سؤال وجواب</a></li>
+                <li>🔗 <a href="https://www.goldapi.io" target="_blank" class="source-link" data-i18n="source4">أسعار الذهب العالمية (GoldAPI)</a></li>
+            </ul>
+            <p class="note" data-i18n="apiSourceNote">* يتم تحديث أسعار الذهب والفضة تلقائياً عبر خدمة GoldAPI.io (مزود خارجي).</p>
+        </div>
+    </main>
+
+    <footer class="footer container">
+        <p>
+            <span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span>
+            <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a>
+            <br>
+            <span data-i18n="developer">تطوير SalehGNUTUX · مشروع مفتوح المصدر</span>
+        </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "GT-ZAKAT: مرجع زكاة المسلم",
+  "short_name": "GT-ZAKAT",
+  "description": "احسب زكاتك بدقة مع تحديث لحظي لأسعار الذهب والفضة حسب عملة بلدك",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#1e7e6c",
+  "icons": [
+    {
+      "src": "/GT-ZAKAT/GT-ZAKAT-logo/192x192/gt-zakat-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/GT-ZAKAT/GT-ZAKAT-logo/192x192/gt-zakat-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

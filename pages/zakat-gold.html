@@ -1,0 +1,161 @@
+<!-- pages/zakat-gold.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زكاة الذهب والفضة · GT-ZAKAT</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231e7e6c'>🕌</text></svg>">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-theme="auto">
+    <header class="app-bar">
+        <div class="container">
+            <div class="logo-area">
+                <a href="../index.html" class="logo-link">
+                    <span class="material-icons-round logo-icon">account_balance</span>
+                    <span class="logo-text">GT-ZAKAT</span>
+                </a>
+                <span class="tagline" data-i18n="tagline">مرجع زكاة المسلم</span>
+            </div>
+            <div class="actions">
+                <button class="action-btn" id="themeToggle"><span class="material-icons-round">dark_mode</span></button>
+                <button class="lang-toggle" id="langToggle">English</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-navigation">
+            <a href="zakat-money.html" class="nav-button">
+                <span class="material-icons-round">arrow_right</span>
+                <span data-i18n="prevPage">السابق: زكاة المال</span>
+            </a>
+            <a href="zakat-grains.html" class="nav-button">
+                <span data-i18n="nextPage">التالي: الحبوب والثمار</span>
+                <span class="material-icons-round">arrow_left</span>
+            </a>
+        </div>
+
+        <div class="card">
+            <h1>
+                <span class="material-icons-round" style="font-size:2rem;">circle</span>
+                <span data-i18n="goldTitle">زكاة الذهب والفضة</span>
+            </h1>
+            <div class="divider"></div>
+
+            <h2 data-i18n="quranHeading">📖 النصوص الشرعية</h2>
+            <p>
+                <strong data-i18n="quranVerse">الآية:</strong>
+                <span data-i18n="verseGold1">﴿وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنفِقُونَهَا فِي سَبِيلِ اللَّهِ فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍ﴾</span>
+                <a href="https://quran.com/9:34" target="_blank" class="source-link">(التوبة 34)</a>
+            </p>
+            <p>
+                <strong data-i18n="hadith">الحديث:</strong>
+                <span data-i18n="hadithGold1">«ما من صاحب ذهب ولا فضة لا يؤدي منها حقها إلا إذا كان يوم القيامة صفحت له صفائح من نار...»</span>
+                <a href="https://sunnah.com/muslim:987" target="_blank" class="source-link">(مسلم 987)</a>
+            </p>
+
+            <h2 data-i18n="madhhabHeading">📜 آراء المذاهب الأربعة</h2>
+            <ul style="list-style: none; padding-right:0;">
+                <li><strong>الحنفي:</strong> <span data-i18n="hanafiGold">نصاب الذهب 20 مثقالاً (85 جراماً)، ونصاب الفضة 200 درهم (595 جراماً). الفضة لا تضم إلى الذهب، ويخرج ربع العشر (2.5%).</span></li>
+                <li><strong>المالكي:</strong> <span data-i18n="malikiGold">لا زكاة في الحلي المباح، وإنما في الكنز والتجارة. النصاب كالحنفي.</span></li>
+                <li><strong>الشافعي:</strong> <span data-i18n="shafiiGold">يضم الذهب إلى الفضة في تكميل النصاب. النصاب 85 جرام ذهب أو 595 فضة.</span></li>
+                <li><strong>الحنبلي:</strong> <span data-i18n="hanbaliGold">يضم الذهب إلى الفضة ولو لم يكمل كل منهما النصاب.</span></li>
+            </ul>
+
+            <h2 data-i18n="calculationHeading">⚖️ كيفية الحساب</h2>
+            <p data-i18n="calcGold">إذا بلغ الذهب 85 جراماً أو الفضة 595 جراماً (أو قيمتهما إذا اختلطا)، فأخرج 2.5% من قيمتهما بسعر السوق يوم الوجوب.</p>
+
+            <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
+            <p data-i18n="fatwaGold">الذهب المعد للزينة فيه خلاف: الحنفية يوجبون الزكاة، والجمهور لا يوجبون. الراجح عند كثير من المعاصرين إخراج زكاة الحلي إذا بلغ النصاب وحال الحول، خروجاً من الخلاف. <a href="https://islamqa.info/ar/answers/22375" target="_blank" class="source-link">(الإسلام سؤال وجواب)</a></p>
+        </div>
+    </main>
+
+    <footer class="footer container">
+        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT">GitHub</a></p>
+    </footer>
+
+    <script>
+        (function() {
+            const translations = {
+                tagline: { ar: "مرجع زكاة المسلم", en: "Muslim's Zakat Reference" },
+                prevPage: { ar: "السابق: زكاة المال", en: "Previous: Zakat on Cash" },
+                nextPage: { ar: "التالي: الحبوب والثمار", en: "Next: Grains & Fruits" },
+                goldTitle: { ar: "زكاة الذهب والفضة", en: "Zakat on Gold and Silver" },
+                quranHeading: { ar: "📖 النصوص الشرعية", en: "📖 Quranic Texts" },
+                quranVerse: { ar: "الآية:", en: "Verse:" },
+                verseGold1: { ar: "﴿وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنفِقُونَهَا فِي سَبِيلِ اللَّهِ فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍ﴾", en: "Those who hoard gold and silver and spend them not in the way of Allah - give them tidings of a painful punishment." },
+                hadith: { ar: "الحديث:", en: "Hadith:" },
+                hadithGold1: { ar: "«ما من صاحب ذهب ولا فضة لا يؤدي منها حقها إلا إذا كان يوم القيامة صفحت له صفائح من نار...»", en: "There is no owner of gold or silver who does not pay what is due on them but on the Day of Resurrection sheets of fire will be made for him..." },
+                madhhabHeading: { ar: "📜 آراء المذاهب الأربعة", en: "📜 Opinions of the Four Schools" },
+                hanafiGold: { ar: "نصاب الذهب 20 مثقالاً (85 جراماً)، ونصاب الفضة 200 درهم (595 جراماً). الفضة لا تضم إلى الذهب، ويخرج ربع العشر (2.5%).", en: "Hanafi: Nisab of gold is 20 mithqal (85g), nisab of silver is 200 dirhams (595g). Silver is not combined with gold. Rate is 2.5%." },
+                malikiGold: { ar: "لا زكاة في الحلي المباح، وإنما في الكنز والتجارة. النصاب كالحنفي.", en: "Maliki: No zakat on permissible jewelry, only on hoarded or trade gold/silver. Nisab is same as Hanafi." },
+                shafiiGold: { ar: "يضم الذهب إلى الفضة في تكميل النصاب. النصاب 85 جرام ذهب أو 595 فضة.", en: "Shafi'i: Gold and silver are combined to complete the nisab. Nisab is 85g gold or 595g silver." },
+                hanbaliGold: { ar: "يضم الذهب إلى الفضة ولو لم يكمل كل منهما النصاب.", en: "Hanbali: Gold and silver are combined even if neither alone reaches nisab." },
+                calculationHeading: { ar: "⚖️ كيفية الحساب", en: "⚖️ How to Calculate" },
+                calcGold: { ar: "إذا بلغ الذهب 85 جراماً أو الفضة 595 جراماً (أو قيمتهما إذا اختلطا)، فأخرج 2.5% من قيمتهما بسعر السوق يوم الوجوب.", en: "If you own 85g of gold or 595g of silver (or their combined value), pay 2.5% of their market value on the due date." },
+                fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
+                fatwaGold: { ar: "الذهب المعد للزينة فيه خلاف: الحنفية يوجبون الزكاة، والجمهور لا يوجبون. الراجح عند كثير من المعاصرين إخراج زكاة الحلي إذا بلغ النصاب وحال الحول، خروجاً من الخلاف.", en: "There is a difference of opinion regarding jewelry: Hanafis require zakat, while the majority do not. Many contemporary scholars recommend paying zakat on jewelry if it reaches nisab and a year passes, to be safe." },
+                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" }
+            };
+
+            const themeToggle = document.getElementById('themeToggle');
+            const langToggle = document.getElementById('langToggle');
+            let currentLang = 'ar';
+
+            function setTheme(theme) {
+                if (theme === 'auto') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+            }
+            setTheme('auto');
+            themeToggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+            });
+
+            function applyLanguage(lang) {
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[key] && translations[key][lang]) {
+                        if (el.tagName === 'A') {
+                            // For navigation links with spans
+                            el.innerHTML = el.innerHTML.replace(/>.*</, '>' + translations[key][lang] + '<');
+                        } else {
+                            el.innerText = translations[key][lang];
+                        }
+                    }
+                });
+
+                document.querySelectorAll('.nav-button span[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[key] && translations[key][lang]) {
+                        el.innerText = translations[key][lang];
+                    }
+                });
+            }
+
+            applyLanguage('ar');
+            langToggle.addEventListener('click', () => {
+                applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                if (!el.hasAttribute('data-ar')) {
+                    el.setAttribute('data-ar', el.innerText.trim());
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

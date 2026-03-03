@@ -1,0 +1,194 @@
+<!-- pages/zakat-fitrah.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زكاة الفطر · GT-ZAKAT</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231e7e6c'>🍽️</text></svg>">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-theme="auto">
+    <header class="app-bar">
+        <div class="container">
+            <div class="logo-area">
+                <a href="../index.html" class="logo-link">
+                    <span class="material-icons-round logo-icon">account_balance</span>
+                    <span class="logo-text">GT-ZAKAT</span>
+                </a>
+                <span class="tagline" data-i18n="tagline">مرجع زكاة المسلم</span>
+            </div>
+            <div class="actions">
+                <button class="action-btn" id="themeToggle"><span class="material-icons-round">dark_mode</span></button>
+                <button class="lang-toggle" id="langToggle">English</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-navigation">
+            <a href="zakat-trade.html" class="nav-button">
+                <span class="material-icons-round">arrow_right</span>
+                <span data-i18n="prevPage">السابق: عروض التجارة</span>
+            </a>
+            <a href="zakat-money.html" class="nav-button">
+                <span data-i18n="nextPage">التالي: زكاة المال</span>
+                <span class="material-icons-round">arrow_left</span>
+            </a>
+        </div>
+
+        <div class="card">
+            <h1>
+                <span class="material-icons-round" style="font-size:2rem;">🍽️</span>
+                <span data-i18n="fitrahTitle">زكاة الفطر</span>
+            </h1>
+            <div class="divider"></div>
+
+            <!-- التعريف -->
+            <h2 data-i18n="definitionHeading">📖 تعريف زكاة الفطر وحكمها</h2>
+            <p data-i18n="fitrahDef">زكاة الفطر صدقة واجبة فرضها رسول الله ﷺ في السنة الثانية من الهجرة، طهرة للصائم من اللغو والرفث، وطعمة للمساكين.</p>
+            <p><strong data-i18n="hadith">الحديث:</strong> <span data-i18n="hadithFitrah1">«فَرَضَ رَسُولُ اللَّهِ ﷺ زَكَاةَ الفِطْرِ صَاعًا مِنْ تَمْرٍ أَوْ صَاعًا مِنْ شَعِيرٍ، عَلَى العَبْدِ وَالحُرِّ، وَالذَّكَرِ وَالأُنْثَى، وَالصَّغِيرِ وَالكَبِيرِ مِنَ المُسْلِمِينَ»</span> <a href="https://sunnah.com/bukhari:1503" target="_blank" class="source-link">(البخاري 1503)</a></p>
+
+            <!-- مقدارها -->
+            <h2 data-i18n="amountHeading">⚖️ مقدار زكاة الفطر</h2>
+            <p data-i18n="fitrahAmount">المقدار الشرعي: <strong>صاع نبوي</strong> من قوت البلد (أرز، قمح، تمر، شعير). الصاع ≈ 2.5 - 3 كيلوغرام.</p>
+            <p data-i18n="fitrahCash">القيمة النقدية: تختلف حسب البلد. أمثلة لعام 2026:</p>
+            <ul>
+                <li data-i18n="egyptFitrah">🇪🇬 <strong>مصر:</strong> 35 جنيهاً كحد أدنى (دار الإفتاء المصرية)</li>
+                <li data-i18n="moroccoFitrah">🇲🇦 <strong>المغرب:</strong> 20 - 30 درهماً (تقديري)</li>
+                <li data-i18n="saudiFitrah">🇸🇦 <strong>السعودية:</strong> 25 - 35 ريالاً</li>
+            </ul>
+
+            <!-- على من تجب -->
+            <h2 data-i18n="obligationHeading">👤 على من تجب؟</h2>
+            <p data-i18n="fitrahObligation">تجب على كل مسلم يملك قوت يومه وليلته فاضلاً عن حاجته وحاجة من يعول. تُخرج عن النفس والزوجة والأبناء وكل من تلزمه نفقته.</p>
+            <p><strong data-i18n="exception">لا تجب:</strong> <span data-i18n="fitrahException">عن الميت الذي مات قبل غروب شمس آخر يوم من رمضان، وعن الجنين إذا لم يولد قبل العيد، وعن الفقير الذي لا يملك قوت يومه.</span></p>
+
+            <!-- وقت الإخراج -->
+            <h2 data-i18n="timeHeading">⏰ وقت إخراج زكاة الفطر</h2>
+            <ul>
+                <li><strong data-i18n="permissibleTime">وقت الجواز:</strong> <span data-i18n="permissibleTimeDesc">من أول يوم في رمضان</span></li>
+                <li><strong data-i18n="obligatoryTime">وقت الوجوب:</strong> <span data-i18n="obligatoryTimeDesc">غروب شمس آخر يوم من رمضان (ليلة العيد)</span></li>
+                <li><strong data-i18n="bestTime">الوقت الأفضل:</strong> <span data-i18n="bestTimeDesc">قبيل صلاة العيد مباشرة</span></li>
+                <li><strong data-i18n="prohibitedTime">ما بعد الصلاة:</strong> <span data-i18n="prohibitedTimeDesc">صدقة من الصدقات (لا تقع زكاة فطر)</span></li>
+            </ul>
+
+            <!-- حكم إخراجها نقداً -->
+            <h2 data-i18n="cashOpinionHeading">💰 حكم إخراج زكاة الفطر نقداً</h2>
+            <p data-i18n="cashOpinion1">جمهور العلماء (المالكية والشافعية والحنابلة) يرون إخراجها طعاماً. لكن الإمام أبو حنيفة أجاز إخراجها نقداً إذا كان أنفع للفقير.</p>
+            <p data-i18n="cashOpinion2">الفتوى المعاصرة في كثير من البلدان (مصر، المغرب، الأردن) تجيز إخراج القيمة تيسيراً على الفقراء.</p>
+
+            <!-- لمن تعطى -->
+            <h2 data-i18n="recipientsHeading">🎁 لمن تعطى زكاة الفطر؟</h2>
+            <p data-i18n="fitrahRecipients">للفقراء والمساكين بالدرجة الأولى، لإغنائهم عن السؤال يوم العيد. قال ﷺ: «أَغْنُوهُمْ عَنِ الطَّوَافِ فِي هَذَا الْيَوْمِ».</p>
+
+            <!-- فتاوى معاصرة -->
+            <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
+            <p data-i18n="fatwaFitrah1">دار الإفتاء المصرية: 35 جنيهاً للفرد عام 2026 (تعادل 2.04 كجم قمح).</p>
+            <p data-i18n="fatwaFitrah2">المجلس العلمي الأعلى المغربي: يوصي بإخراجها طعاماً مع جواز القيمة للحاجة.</p>
+        </div>
+    </main>
+
+    <footer class="footer container">
+        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT">GitHub</a></p>
+    </footer>
+
+    <script>
+        (function() {
+            const translations = {
+                tagline: { ar: "مرجع زكاة المسلم", en: "Muslim's Zakat Reference" },
+                prevPage: { ar: "السابق: عروض التجارة", en: "Previous: Trade Goods" },
+                nextPage: { ar: "التالي: زكاة المال", en: "Next: Zakat on Cash" },
+                fitrahTitle: { ar: "زكاة الفطر", en: "Zakat al-Fitr" },
+                definitionHeading: { ar: "📖 تعريف زكاة الفطر وحكمها", en: "📖 Definition and Ruling" },
+                fitrahDef: { ar: "زكاة الفطر صدقة واجبة فرضها رسول الله ﷺ في السنة الثانية من الهجرة، طهرة للصائم من اللغو والرفث، وطعمة للمساكين.", en: "Zakat al-Fitr is an obligatory charity enjoined by the Prophet ﷺ in the second year of Hijrah, as purification for the fasting person from idle talk and obscenity, and as food for the poor." },
+                hadith: { ar: "الحديث:", en: "Hadith:" },
+                hadithFitrah1: { ar: "«فَرَضَ رَسُولُ اللَّهِ ﷺ زَكَاةَ الفِطْرِ صَاعًا مِنْ تَمْرٍ أَوْ صَاعًا مِنْ شَعِيرٍ، عَلَى العَبْدِ وَالحُرِّ، وَالذَّكَرِ وَالأُنْثَى، وَالصَّغِيرِ وَالكَبِيرِ مِنَ المُسْلِمِينَ»", en: "The Messenger of Allah ﷺ enjoined Zakat al-Fitr as one sa' of dates or one sa' of barley on every slave and free, male and female, young and old among the Muslims." },
+                amountHeading: { ar: "⚖️ مقدار زكاة الفطر", en: "⚖️ Amount" },
+                fitrahAmount: { ar: "المقدار الشرعي: صاع نبوي من قوت البلد (أرز، قمح، تمر، شعير). الصاع ≈ 2.5 - 3 كيلوغرام.", en: "The prescribed amount is one Sa' of the staple food of the country (rice, wheat, dates, barley). Sa' ≈ 2.5 - 3 kg." },
+                fitrahCash: { ar: "القيمة النقدية: تختلف حسب البلد. أمثلة لعام 2026:", en: "Monetary value varies by country. Examples for 2026:" },
+                egyptFitrah: { ar: "🇪🇬 مصر: 35 جنيهاً كحد أدنى (دار الإفتاء المصرية)", en: "🇪🇬 Egypt: 35 EGP minimum (Dar al-Ifta)" },
+                moroccoFitrah: { ar: "🇲🇦 المغرب: 20 - 30 درهماً (تقديري)", en: "🇲🇦 Morocco: 20-30 MAD (estimated)" },
+                saudiFitrah: { ar: "🇸🇦 السعودية: 25 - 35 ريالاً", en: "🇸🇦 Saudi Arabia: 25-35 SAR" },
+                obligationHeading: { ar: "👤 على من تجب؟", en: "👤 Who Must Pay?" },
+                fitrahObligation: { ar: "تجب على كل مسلم يملك قوت يومه وليلته فاضلاً عن حاجته وحاجة من يعول. تُخرج عن النفس والزوجة والأبناء وكل من تلزمه نفقته.", en: "It is obligatory on every Muslim who possesses provision for himself and his family on the day and night of Eid. It is paid for oneself, spouse, children, and all dependents." },
+                exception: { ar: "لا تجب:", en: "Not obligatory:" },
+                fitrahException: { ar: "عن الميت الذي مات قبل غروب شمس آخر يوم من رمضان، وعن الجنين إذا لم يولد قبل العيد، وعن الفقير الذي لا يملك قوت يومه.", en: "For the deceased who died before sunset on the last day of Ramadan, for the unborn child not born before Eid, and for the poor who lack provision." },
+                timeHeading: { ar: "⏰ وقت إخراج زكاة الفطر", en: "⏰ Time of Payment" },
+                permissibleTime: { ar: "وقت الجواز:", en: "Permissible time:" },
+                permissibleTimeDesc: { ar: "من أول يوم في رمضان", en: "From the first day of Ramadan" },
+                obligatoryTime: { ar: "وقت الوجوب:", en: "Obligatory time:" },
+                obligatoryTimeDesc: { ar: "غروب شمس آخر يوم من رمضان (ليلة العيد)", en: "Sunset on the last day of Ramadan (night of Eid)" },
+                bestTime: { ar: "الوقت الأفضل:", en: "Best time:" },
+                bestTimeDesc: { ar: "قبيل صلاة العيد مباشرة", en: "Just before Eid prayer" },
+                prohibitedTime: { ar: "ما بعد الصلاة:", en: "After prayer:" },
+                prohibitedTimeDesc: { ar: "صدقة من الصدقات (لا تقع زكاة فطر)", en: "Counts as ordinary charity (not Fitrah)" },
+                cashOpinionHeading: { ar: "💰 حكم إخراج زكاة الفطر نقداً", en: "💰 Ruling on Paying Cash" },
+                cashOpinion1: { ar: "جمهور العلماء (المالكية والشافعية والحنابلة) يرون إخراجها طعاماً. لكن الإمام أبو حنيفة أجاز إخراجها نقداً إذا كان أنفع للفقير.", en: "The majority (Maliki, Shafi'i, Hanbali) require food. Imam Abu Hanifa allowed cash if it benefits the poor." },
+                cashOpinion2: { ar: "الفتوى المعاصرة في كثير من البلدان (مصر، المغرب، الأردن) تجيز إخراج القيمة تيسيراً على الفقراء.", en: "Contemporary fatwas in many countries (Egypt, Morocco, Jordan) permit cash for convenience of the poor." },
+                recipientsHeading: { ar: "🎁 لمن تعطى زكاة الفطر؟", en: "🎁 Recipients" },
+                fitrahRecipients: { ar: "للفقراء والمساكين بالدرجة الأولى، لإغنائهم عن السؤال يوم العيد. قال ﷺ: «أَغْنُوهُمْ عَنِ الطَّوَافِ فِي هَذَا الْيَوْمِ».", en: "Primarily for the poor and needy, to spare them from begging on Eid. The Prophet ﷺ said: 'Spare them from begging on this day.'" },
+                fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
+                fatwaFitrah1: { ar: "دار الإفتاء المصرية: 35 جنيهاً للفرد عام 2026 (تعادل 2.04 كجم قمح).", en: "Egyptian Dar al-Ifta: 35 EGP per person in 2026 (equivalent to 2.04 kg wheat)." },
+                fatwaFitrah2: { ar: "المجلس العلمي الأعلى المغربي: يوصي بإخراجها طعاماً مع جواز القيمة للحاجة.", en: "Moroccan Supreme Scientific Council: Recommends food, permits cash when needed." },
+                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" }
+            };
+
+            const themeToggle = document.getElementById('themeToggle');
+            const langToggle = document.getElementById('langToggle');
+            let currentLang = 'ar';
+
+            function setTheme(theme) {
+                if (theme === 'auto') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+            }
+            setTheme('auto');
+            themeToggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+            });
+
+            function applyLanguage(lang) {
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[key] && translations[key][lang]) {
+                        if (el.tagName === 'A') {
+                            el.innerHTML = el.innerHTML.replace(/>.*</, '>' + translations[key][lang] + '<');
+                        } else {
+                            el.innerText = translations[key][lang];
+                        }
+                    }
+                });
+
+                document.querySelectorAll('.nav-button span[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[key] && translations[key][lang]) {
+                        el.innerText = translations[key][lang];
+                    }
+                });
+            }
+
+            applyLanguage('ar');
+            langToggle.addEventListener('click', () => {
+                applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                if (!el.hasAttribute('data-ar')) {
+                    el.setAttribute('data-ar', el.innerText.trim());
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

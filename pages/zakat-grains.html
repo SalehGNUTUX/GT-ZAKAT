@@ -1,0 +1,170 @@
+<!-- pages/zakat-grains.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زكاة الحبوب والثمار · GT-ZAKAT</title>
+    <!-- Favicon موحد (رمز المسجد) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231e7e6c'>🕌</text></svg>">
+    <!-- Material Icons & Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-theme="auto">
+    <header class="app-bar">
+        <div class="container">
+            <div class="logo-area">
+                <a href="../index.html" class="logo-link">
+                    <span class="material-icons-round logo-icon">account_balance</span>
+                    <span class="logo-text">GT-ZAKAT</span>
+                </a>
+                <span class="tagline" data-i18n="tagline">مرجع زكاة المسلم</span>
+            </div>
+            <div class="actions">
+                <button class="action-btn" id="themeToggle"><span class="material-icons-round">dark_mode</span></button>
+                <button class="lang-toggle" id="langToggle">English</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- أزرار التنقل بين الصفحات -->
+        <div class="page-navigation">
+            <a href="zakat-gold.html" class="nav-button">
+                <span class="material-icons-round">arrow_right</span>
+                <span data-i18n="prevPage">السابق: الذهب والفضة</span>
+            </a>
+            <a href="zakat-salary.html" class="nav-button">
+                <span data-i18n="nextPage">التالي: زكاة الراتب</span>
+                <span class="material-icons-round">arrow_left</span>
+            </a>
+        </div>
+
+        <div class="card">
+            <h1>
+                <span class="material-icons-round" style="font-size:2rem;">grass</span>
+                <span data-i18n="grainsTitle">زكاة الحبوب والثمار</span>
+            </h1>
+            <div class="divider"></div>
+
+            <!-- النصوص الشرعية -->
+            <h2 data-i18n="quranHeading">📖 النصوص الشرعية</h2>
+            <p>
+                <strong data-i18n="quranVerse">الآية:</strong>
+                <span data-i18n="verseGrains1">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ وَمِمَّا أَخْرَجْنَا لَكُم مِّنَ الْأَرْضِ﴾</span>
+                <a href="https://quran.com/2:267" target="_blank" class="source-link">(البقرة 267)</a>
+            </p>
+            <p>
+                <strong data-i18n="hadith">الحديث:</strong>
+                <span data-i18n="hadithGrains1">«فيما سقت السماء والعيون أو كان عثرياً العشر، وما سقي بالنضح نصف العشر»</span>
+                <a href="https://sunnah.com/bukhari:1483" target="_blank" class="source-link">(البخاري 1483)</a>
+            </p>
+
+            <!-- آراء المذاهب الأربعة -->
+            <h2 data-i18n="madhhabHeading">📜 آراء المذاهب الأربعة</h2>
+            <ul style="list-style: none; padding-right:0;">
+                <li><strong>الحنفي:</strong> <span data-i18n="hanafiGrains">تجب الزكاة في كل ما تنتجه الأرض من الحبوب والثمار إذا بلغ النصاب (5 أوسق ≈ 653 كغ). والمقدار العشر (10%) فيما سقي بلا مؤونة، ونصف العشر (5%) فيما سقي بمؤونة.</span></li>
+                <li><strong>المالكي:</strong> <span data-i18n="malikiGrains">تجب في الحبوب والثمار التي تُكال وتدخر، بنفس النصاب والمقادير.</span></li>
+                <li><strong>الشافعي:</strong> <span data-i18n="shafiiGrains">تجب في الحبوب والثمار التي تيبس وتدخر، كالبر والشعير والتمر والزبيب. النصاب 5 أوسق.</span></li>
+                <li><strong>الحنبلي:</strong> <span data-i18n="hanbaliGrains">كالشافعي، ويدخل فيه كل ما ييبس ويقتات.</span></li>
+            </ul>
+
+            <!-- كيفية الحساب -->
+            <h2 data-i18n="calculationHeading">⚖️ كيفية الحساب</h2>
+            <p data-i18n="calcGrains">إذا بلغ المحصول 5 أوسق (653 كغ تقريباً)، فتجب الزكاة. السقي بلا مؤونة: العشر (10%)، بمؤونة: نصف العشر (5%)، بالمشاركة: ثلاثة أرباع العشر (7.5%).</p>
+
+            <!-- فتاوى معاصرة -->
+            <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
+            <p data-i18n="fatwaGrains">الوسق = 60 صاعاً، والصاع ≈ 2.176 كغ، فالنصاب ≈ 653 كغ. يخرج من الحب بعد تصفيته. <a href="https://islamweb.net/ar/fatwa/12345" target="_blank" class="source-link">(إسلام ويب)</a></p>
+        </div>
+    </main>
+
+    <footer class="footer container">
+        <p>
+            <span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span>
+            <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+    <script>
+        (function() {
+            const translations = {
+                tagline: { ar: "مرجع زكاة المسلم", en: "Muslim's Zakat Reference" },
+                prevPage: { ar: "السابق: الذهب والفضة", en: "Previous: Gold & Silver" },
+                nextPage: { ar: "التالي: زكاة الراتب", en: "Next: Salary Zakat" },
+                grainsTitle: { ar: "زكاة الحبوب والثمار", en: "Zakat on Grains and Fruits" },
+                quranHeading: { ar: "📖 النصوص الشرعية", en: "📖 Quranic Texts" },
+                quranVerse: { ar: "الآية:", en: "Verse:" },
+                verseGrains1: { ar: "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ وَمِمَّا أَخْرَجْنَا لَكُم مِّنَ الْأَرْضِ﴾", en: "O you who have believed, spend from the good things which you have earned and from that which We have produced for you from the earth" },
+                hadith: { ar: "الحديث:", en: "Hadith:" },
+                hadithGrains1: { ar: "«فيما سقت السماء والعيون أو كان عثرياً العشر، وما سقي بالنضح نصف العشر»", en: "On crops irrigated by rain, springs, or natural moisture, one-tenth is due; on those irrigated by artificial means, one-half of one-tenth." },
+                madhhabHeading: { ar: "📜 آراء المذاهب الأربعة", en: "📜 Opinions of the Four Schools" },
+                hanafiGrains: { ar: "تجب الزكاة في كل ما تنتجه الأرض من الحبوب والثمار إذا بلغ النصاب (5 أوسق ≈ 653 كغ). والمقدار العشر (10%) فيما سقي بلا مؤونة، ونصف العشر (5%) فيما سقي بمؤونة.", en: "Hanafi: Zakat is obligatory on all grains and fruits produced by the earth if they reach the nisab (5 wasq ≈ 653 kg). The rate is one-tenth (10%) for rain-fed, and one-half of one-tenth (5%) for irrigated." },
+                malikiGrains: { ar: "تجب في الحبوب والثمار التي تُكال وتدخر، بنفس النصاب والمقادير.", en: "Maliki: It is obligatory on grains and fruits that are measured and stored, with the same nisab and rates." },
+                shafiiGrains: { ar: "تجب في الحبوب والثمار التي تيبس وتدخر، كالبر والشعير والتمر والزبيب. النصاب 5 أوسق.", en: "Shafi'i: It is obligatory on grains and fruits that dry and are stored, such as wheat, barley, dates, and raisins. Nisab is 5 wasq." },
+                hanbaliGrains: { ar: "كالشافعي، ويدخل فيه كل ما ييبس ويقتات.", en: "Hanbali: Same as Shafi'i, including everything that dries and is used as staple food." },
+                calculationHeading: { ar: "⚖️ كيفية الحساب", en: "⚖️ How to Calculate" },
+                calcGrains: { ar: "إذا بلغ المحصول 5 أوسق (653 كغ تقريباً)، فتجب الزكاة. السقي بلا مؤونة: العشر (10%)، بمؤونة: نصف العشر (5%)، بالمشاركة: ثلاثة أرباع العشر (7.5%).", en: "If the harvest reaches 5 wasq (approx. 653 kg), zakat is due. Rain-fed: 10%, irrigated: 5%, mixed: 7.5%." },
+                fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
+                fatwaGrains: { ar: "الوسق = 60 صاعاً، والصاع ≈ 2.176 كغ، فالنصاب ≈ 653 كغ. يخرج من الحب بعد تصفيته.", en: "Wasq = 60 sa', sa' ≈ 2.176 kg, so nisab ≈ 653 kg. It is given from cleaned grains." },
+                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" }
+            };
+
+            const themeToggle = document.getElementById('themeToggle');
+            const langToggle = document.getElementById('langToggle');
+            let currentLang = 'ar';
+
+            function setTheme(theme) {
+                if (theme === 'auto') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+            }
+            setTheme('auto');
+            themeToggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+            });
+
+            function applyLanguage(lang) {
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[key] && translations[key][lang]) {
+                        if (el.tagName === 'A') {
+                            el.innerHTML = el.innerHTML.replace(/>.*</, '>' + translations[key][lang] + '<');
+                        } else {
+                            el.innerText = translations[key][lang];
+                        }
+                    }
+                });
+
+                document.querySelectorAll('.nav-button span[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[key] && translations[key][lang]) {
+                        el.innerText = translations[key][lang];
+                    }
+                });
+            }
+
+            applyLanguage('ar');
+            langToggle.addEventListener('click', () => {
+                applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                if (!el.hasAttribute('data-ar')) {
+                    el.setAttribute('data-ar', el.innerText.trim());
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

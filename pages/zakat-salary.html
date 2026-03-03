@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زكاة الراتب · GT-ZAKAT</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231e7e6c'>🕌</text></svg>">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-theme="auto">
+    <header class="app-bar">
+        <div class="container">
+            <div class="logo-area">
+                <a href="../index.html" class="logo-link">
+                    <span class="material-icons-round logo-icon">account_balance</span>
+                    <span class="logo-text">GT-ZAKAT</span>
+                </a>
+                <span class="tagline" data-i18n="tagline">مرجع زكاة المسلم</span>
+            </div>
+            <div class="actions">
+                <button class="action-btn" id="themeToggle"><span class="material-icons-round">dark_mode</span></button>
+                <button class="lang-toggle" id="langToggle">English</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div style="margin: 20px 0;">
+            <a href="../index.html" class="source-link" data-i18n="backLink">← العودة للرئيسية</a>
+        </div>
+
+        <div class="card">
+            <h1>
+                <span class="material-icons-round" style="font-size:2rem;">work</span>
+                <span data-i18n="salaryTitle">زكاة الراتب</span>
+            </h1>
+            <div class="divider"></div>
+
+            <h2 data-i18n="quranHeading">📖 النصوص الشرعية</h2>
+            <p>
+                <strong data-i18n="quranVerse">الآية:</strong>
+                <span data-i18n="verseSalary1">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ﴾</span>
+                <a href="https://quran.com/2:267" target="_blank" class="source-link">(البقرة 267)</a>
+            </p>
+            <p>
+                <strong data-i18n="hadith">الحديث:</strong>
+                <span data-i18n="hadithSalary1">«ليس على المسلم في عبده ولا فرسه صدقة»</span>
+                <a href="https://sunnah.com/bukhari:1463" target="_blank" class="source-link">(البخاري 1463)</a>
+                <span data-i18n="hadithSalaryNote"> (يدل على أن ما أعد للحاجة ليس فيه زكاة حتى يحول عليه الحول).</span>
+            </p>
+
+            <h2 data-i18n="madhhabHeading">📜 آراء المذاهب الأربعة</h2>
+            <ul style="list-style: none; padding-right:0;">
+                <li><strong>الحنفي:</strong> <span data-i18n="hanafiSalary">لا زكاة في الراتب حتى يحول عليه الحول وهو في ملكك، فإن ادخرته وبلغ النصاب وحال الحول ففيه الزكاة.</span></li>
+                <li><strong>المالكي:</strong> <span data-i18n="malikiSalary">المال المستفاد (كالراتب) يزكى إذا حال الحول على أصله أو على مجموع المال إن كان له مال آخر.</span></li>
+                <li><strong>الشافعي:</strong> <span data-i18n="shafiiSalary">يبدأ حول الراتب من يوم قبضه، ولا يضم إلى مال آخر لم يحل حوله إلا بشرط.</span></li>
+                <li><strong>الحنبلي:</strong> <span data-i18n="hanbaliSalary">يضم الراتب إلى سائر النقود في الحول إذا كان قد ملك نصاباً في أول الحول.</span></li>
+            </ul>
+
+            <h2 data-i18n="calculationHeading">⚖️ كيفية الحساب</h2>
+            <p data-i18n="calcSalary">الراتب نفسه ليس فيه زكاة لحظة قبضه، بل يضم إلى ما لديك من نقود. فإذا كان مجموع ما تملكه من نقود (بما فيها الرواتب المدخرة) يبلغ النصاب ويمر عليه حول هجري، تخرج 2.5% من المجموع.</p>
+
+            <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
+            <p data-i18n="fatwaSalary">الأفضل للموظف أن يجعل له حولاً معيناً (مثل نهاية السنة الهجرية) يحصي فيه ما ادخره من رواتب ويخرج زكاته. <a href="https://binbaz.org.sa/fatwas/15023" target="_blank" class="source-link">(ابن باز)</a></p>
+
+            <div id="translations" style="display:none;">
+                <span data-en="Muslim's Zakat Reference">مرجع زكاة المسلم</span>
+                <span data-en="← Back to Home">← العودة للرئيسية</span>
+                <span data-en="Zakat on Salary">زكاة الراتب</span>
+                <span data-en="📖 Quranic Texts">📖 النصوص الشرعية</span>
+                <span data-en="Verse:">الآية:</span>
+                <span data-en="O you who have believed, spend from the good things which you have earned">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ﴾</span>
+                <span data-en="Hadith:">الحديث:</span>
+                <span data-en="A Muslim is not obliged to pay zakat on his slave or his horse">«ليس على المسلم في عبده ولا فرسه صدقة»</span>
+                <span data-en=" (indicating that what is prepared for personal need is not subject to zakat until a year passes)."> (يدل على أن ما أعد للحاجة ليس فيه زكاة حتى يحول عليه الحول).</span>
+                <span data-en="📜 Opinions of the Four Schools">📜 آراء المذاهب الأربعة</span>
+                <span data-en="Hanafi: No zakat on salary until a lunar year passes while it is in your possession. If you save it and it reaches nisab and a year passes, zakat is due.">لا زكاة في الراتب حتى يحول عليه الحول وهو في ملكك، فإن ادخرته وبلغ النصاب وحال الحول ففيه الزكاة.</span>
+                <span data-en="Maliki: Acquired wealth (like salary) is subject to zakat if a year passes on its origin or on the total wealth if combined with other assets.">المال المستفاد (كالراتب) يزكى إذا حال الحول على أصله أو على مجموع المال إن كان له مال آخر.</span>
+                <span data-en="Shafi'i: The haul for salary begins from the day it is received, and it is not combined with other wealth that hasn't completed its haul except under conditions.">يبدأ حول الراتب من يوم قبضه، ولا يضم إلى مال آخر لم يحل حوله إلا بشرط.</span>
+                <span data-en="Hanbali: Salary is combined with other cash in the same haul if one already possessed nisab at the beginning of the haul.">يضم الراتب إلى سائر النقود في الحول إذا كان قد ملك نصاباً في أول الحول.</span>
+                <span data-en="⚖️ How to Calculate">⚖️ كيفية الحساب</span>
+                <span data-en="Salary itself is not zakatable at the moment of receipt; it is added to your cash. If the total cash (including saved salaries) reaches nisab and a lunar year passes, pay 2.5% of the total.">الراتب نفسه ليس فيه زكاة لحظة قبضه، بل يضم إلى ما لديك من نقود. فإذا كان مجموع ما تملكه من نقود (بما فيها الرواتب المدخرة) يبلغ النصاب ويمر عليه حول هجري، تخرج 2.5% من المجموع.</span>
+                <span data-en="📚 Contemporary Fatawa">📚 فتاوى معاصرة</span>
+                <span data-en="It is best for an employee to set a specific annual date (e.g., end of the lunar year) to calculate the savings from salaries and pay zakat.">الأفضل للموظف أن يجعل له حولاً معيناً (مثل نهاية السنة الهجرية) يحصي فيه ما ادخره من رواتب ويخرج زكاته.</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer container">
+        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT">GitHub</a></p>
+    </footer>
+
+    <script>
+        // نفس كود الترجمة والوضع المظلم
+        (function() {
+            const themeToggle = document.getElementById('themeToggle');
+            function setTheme(theme) {
+                if (theme === 'auto') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+            }
+            setTheme('auto');
+            themeToggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+            });
+
+            const langToggle = document.getElementById('langToggle');
+            let currentLang = 'ar';
+            const translationSpans = document.querySelectorAll('#translations span');
+            const translationMap = new Map();
+            translationSpans.forEach(span => {
+                const arText = span.innerText.trim();
+                const enText = span.getAttribute('data-en');
+                if (arText && enText) translationMap.set(arText, enText);
+            });
+
+            document.querySelectorAll('.card p, .card li span, .card h1 span, .card h2, .card strong, .footer p, .tagline').forEach(el => {
+                if (el.tagName !== 'A' && !el.hasAttribute('data-ar')) {
+                    el.setAttribute('data-ar', el.innerText.trim());
+                }
+            });
+
+            function switchLanguage(lang) {
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
+
+                const textElements = document.querySelectorAll('.card p, .card li span, .card h1 span, .card h2, .card strong, .footer p, .tagline');
+                textElements.forEach(el => {
+                    if (lang === 'en') {
+                        const arText = el.getAttribute('data-ar');
+                        if (arText && translationMap.has(arText)) {
+                            el.innerText = translationMap.get(arText);
+                        }
+                    } else {
+                        const arText = el.getAttribute('data-ar');
+                        if (arText) el.innerText = arText;
+                    }
+                });
+            }
+
+            langToggle.addEventListener('click', () => switchLanguage(currentLang === 'ar' ? 'en' : 'ar'));
+            switchLanguage('ar');
+        })();
+    </script>
+</body>
+</html>

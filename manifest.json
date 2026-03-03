@@ -3,14 +3,20 @@
   "short_name": "GT-ZAKAT",
   "description": "احسب زكاتك بدقة مع تحديث لحظي لأسعار الذهب والفضة حسب عملة بلدك",
   "start_url": "/",
-  "scope": "/",
+  "scope": "/GT-ZAKAT/",
   "display": "standalone",
   "background_color": "#f8f9fa",
   "theme_color": "#1e7e6c",
   "icons": [
     {
-      "src": "GT-ZAKAT-logo/192x192/gt-zakat-logo.png",
-      "sizes": "192x192",
+      "src": "GT-ZAKAT-logo/128x128/gt-zakat-logo.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "GT-ZAKAT-logo/256x256/gt-zakat-logo.png",
+      "sizes": "256x256",
       "type": "image/png",
       "purpose": "any maskable"
     },

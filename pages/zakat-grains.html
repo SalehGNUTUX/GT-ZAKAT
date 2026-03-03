@@ -1,15 +1,51 @@
-<!-- pages/zakat-grains.html -->
+<!-- pages/zakat-grains.html - النسخة النهائية الكاملة -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>زكاة الحبوب والثمار · GT-ZAKAT</title>
-    <!-- Favicon موحد (رمز المسجد) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231e7e6c'>🕌</text></svg>">
-    <!-- Material Icons & Fonts -->
+    <!-- أيقونات متعددة المقاسات -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/GT-ZAKAT/GT-ZAKAT-logo/128x128/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/GT-ZAKAT/GT-ZAKAT-logo/256x256/gt-zakat-logo.png">
+    <link rel="apple-touch-icon" href="/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="manifest" href="../manifest.json">
+    <style>
+        .more-info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--md-primary);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: var(--shadow);
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .more-info-btn:hover {
+            background: var(--md-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .more-info-btn .material-icons-round {
+            font-size: 1.2rem;
+        }
+        
+        [dir="ltr"] .more-info-btn {
+            flex-direction: row-reverse;
+        }
+    </style>
 </head>
 <body data-theme="auto">
     <header class="app-bar">
@@ -29,7 +65,6 @@
     </header>
 
     <main class="container">
-        <!-- أزرار التنقل بين الصفحات -->
         <div class="page-navigation">
             <a href="zakat-gold.html" class="nav-button">
                 <span class="material-icons-round">arrow_right</span>
@@ -48,7 +83,6 @@
             </h1>
             <div class="divider"></div>
 
-            <!-- النصوص الشرعية -->
             <h2 data-i18n="quranHeading">📖 النصوص الشرعية</h2>
             <p>
                 <strong data-i18n="quranVerse">الآية:</strong>
@@ -61,7 +95,6 @@
                 <a href="https://sunnah.com/bukhari:1483" target="_blank" class="source-link">(البخاري 1483)</a>
             </p>
 
-            <!-- آراء المذاهب الأربعة -->
             <h2 data-i18n="madhhabHeading">📜 آراء المذاهب الأربعة</h2>
             <ul style="list-style: none; padding-right:0;">
                 <li><strong>الحنفي:</strong> <span data-i18n="hanafiGrains">تجب الزكاة في كل ما تنتجه الأرض من الحبوب والثمار إذا بلغ النصاب (5 أوسق ≈ 653 كغ). والمقدار العشر (10%) فيما سقي بلا مؤونة، ونصف العشر (5%) فيما سقي بمؤونة.</span></li>
@@ -70,21 +103,24 @@
                 <li><strong>الحنبلي:</strong> <span data-i18n="hanbaliGrains">كالشافعي، ويدخل فيه كل ما ييبس ويقتات.</span></li>
             </ul>
 
-            <!-- كيفية الحساب -->
             <h2 data-i18n="calculationHeading">⚖️ كيفية الحساب</h2>
             <p data-i18n="calcGrains">إذا بلغ المحصول 5 أوسق (653 كغ تقريباً)، فتجب الزكاة. السقي بلا مؤونة: العشر (10%)، بمؤونة: نصف العشر (5%)، بالمشاركة: ثلاثة أرباع العشر (7.5%).</p>
 
-            <!-- فتاوى معاصرة -->
             <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
-            <p data-i18n="fatwaGrains">الوسق = 60 صاعاً، والصاع ≈ 2.176 كغ، فالنصاب ≈ 653 كغ. يخرج من الحب بعد تصفيته. <a href="https://islamweb.net/ar/fatwa/12345" target="_blank" class="source-link">(إسلام ويب)</a></p>
+            <p data-i18n="fatwaGrains">الوسق = 60 صاعاً، والصاع ≈ 2.176 كغ، فالنصاب ≈ 653 كغ. يخرج من الحب بعد تصفيته.</p>
+            
+            <!-- زر للاستزادة -->
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D8%B2%D8%B1%D9%88%D8%B9" target="_blank" class="more-info-btn" id="moreInfoBtn">
+                    <span class="material-icons-round">search</span>
+                    <span data-i18n="moreInfo">للاستزادة: المزيد من الفتاوى</span>
+                </a>
+            </div>
         </div>
     </main>
 
     <footer class="footer container">
-        <p>
-            <span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span>
-            <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a>
-        </p>
+        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a><br><span data-i18n="developer">تطوير SalehGNUTUX · مشروع مفتوح المصدر</span></p>
     </footer>
 
     <script>
@@ -108,7 +144,9 @@
                 calcGrains: { ar: "إذا بلغ المحصول 5 أوسق (653 كغ تقريباً)، فتجب الزكاة. السقي بلا مؤونة: العشر (10%)، بمؤونة: نصف العشر (5%)، بالمشاركة: ثلاثة أرباع العشر (7.5%).", en: "If the harvest reaches 5 wasq (approx. 653 kg), zakat is due. Rain-fed: 10%, irrigated: 5%, mixed: 7.5%." },
                 fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
                 fatwaGrains: { ar: "الوسق = 60 صاعاً، والصاع ≈ 2.176 كغ، فالنصاب ≈ 653 كغ. يخرج من الحب بعد تصفيته.", en: "Wasq = 60 sa', sa' ≈ 2.176 kg, so nisab ≈ 653 kg. It is given from cleaned grains." },
-                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" }
+                moreInfo: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
+                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" },
+                developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
             };
 
             const themeToggle = document.getElementById('themeToggle');
@@ -138,8 +176,7 @@
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[key] && translations[key][lang]) {
-                        if (el.tagName === 'A') {
-                            el.innerHTML = el.innerHTML.replace(/>.*</, '>' + translations[key][lang] + '<');
+                        if (el.tagName === 'A' && el.classList.contains('nav-button')) {
                         } else {
                             el.innerText = translations[key][lang];
                         }
@@ -152,6 +189,12 @@
                         el.innerText = translations[key][lang];
                     }
                 });
+
+                const moreInfoBtn = document.getElementById('moreInfoBtn');
+                const moreInfoSpan = moreInfoBtn.querySelector('span[data-i18n]');
+                if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
+                    moreInfoSpan.innerText = translations.moreInfo[lang];
+                }
             }
 
             applyLanguage('ar');

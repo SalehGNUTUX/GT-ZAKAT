@@ -1,13 +1,51 @@
-<!-- pages/zakat-fitrah.html -->
+<!-- pages/zakat-fitrah.html - النسخة النهائية الكاملة -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>زكاة الفطر · GT-ZAKAT</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231e7e6c'>🍽️</text></svg>">
+    <!-- أيقونات متعددة المقاسات -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/GT-ZAKAT/GT-ZAKAT-logo/128x128/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/GT-ZAKAT/GT-ZAKAT-logo/256x256/gt-zakat-logo.png">
+    <link rel="apple-touch-icon" href="/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="manifest" href="../manifest.json">
+    <style>
+        .more-info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--md-primary);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: var(--shadow);
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .more-info-btn:hover {
+            background: var(--md-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .more-info-btn .material-icons-round {
+            font-size: 1.2rem;
+        }
+        
+        [dir="ltr"] .more-info-btn {
+            flex-direction: row-reverse;
+        }
+    </style>
 </head>
 <body data-theme="auto">
     <header class="app-bar">
@@ -45,12 +83,10 @@
             </h1>
             <div class="divider"></div>
 
-            <!-- التعريف -->
             <h2 data-i18n="definitionHeading">📖 تعريف زكاة الفطر وحكمها</h2>
             <p data-i18n="fitrahDef">زكاة الفطر صدقة واجبة فرضها رسول الله ﷺ في السنة الثانية من الهجرة، طهرة للصائم من اللغو والرفث، وطعمة للمساكين.</p>
             <p><strong data-i18n="hadith">الحديث:</strong> <span data-i18n="hadithFitrah1">«فَرَضَ رَسُولُ اللَّهِ ﷺ زَكَاةَ الفِطْرِ صَاعًا مِنْ تَمْرٍ أَوْ صَاعًا مِنْ شَعِيرٍ، عَلَى العَبْدِ وَالحُرِّ، وَالذَّكَرِ وَالأُنْثَى، وَالصَّغِيرِ وَالكَبِيرِ مِنَ المُسْلِمِينَ»</span> <a href="https://sunnah.com/bukhari:1503" target="_blank" class="source-link">(البخاري 1503)</a></p>
 
-            <!-- مقدارها -->
             <h2 data-i18n="amountHeading">⚖️ مقدار زكاة الفطر</h2>
             <p data-i18n="fitrahAmount">المقدار الشرعي: <strong>صاع نبوي</strong> من قوت البلد (أرز، قمح، تمر، شعير). الصاع ≈ 2.5 - 3 كيلوغرام.</p>
             <p data-i18n="fitrahCash">القيمة النقدية: تختلف حسب البلد. أمثلة لعام 2026:</p>
@@ -60,12 +96,10 @@
                 <li data-i18n="saudiFitrah">🇸🇦 <strong>السعودية:</strong> 25 - 35 ريالاً</li>
             </ul>
 
-            <!-- على من تجب -->
             <h2 data-i18n="obligationHeading">👤 على من تجب؟</h2>
             <p data-i18n="fitrahObligation">تجب على كل مسلم يملك قوت يومه وليلته فاضلاً عن حاجته وحاجة من يعول. تُخرج عن النفس والزوجة والأبناء وكل من تلزمه نفقته.</p>
             <p><strong data-i18n="exception">لا تجب:</strong> <span data-i18n="fitrahException">عن الميت الذي مات قبل غروب شمس آخر يوم من رمضان، وعن الجنين إذا لم يولد قبل العيد، وعن الفقير الذي لا يملك قوت يومه.</span></p>
 
-            <!-- وقت الإخراج -->
             <h2 data-i18n="timeHeading">⏰ وقت إخراج زكاة الفطر</h2>
             <ul>
                 <li><strong data-i18n="permissibleTime">وقت الجواز:</strong> <span data-i18n="permissibleTimeDesc">من أول يوم في رمضان</span></li>
@@ -74,24 +108,29 @@
                 <li><strong data-i18n="prohibitedTime">ما بعد الصلاة:</strong> <span data-i18n="prohibitedTimeDesc">صدقة من الصدقات (لا تقع زكاة فطر)</span></li>
             </ul>
 
-            <!-- حكم إخراجها نقداً -->
             <h2 data-i18n="cashOpinionHeading">💰 حكم إخراج زكاة الفطر نقداً</h2>
             <p data-i18n="cashOpinion1">جمهور العلماء (المالكية والشافعية والحنابلة) يرون إخراجها طعاماً. لكن الإمام أبو حنيفة أجاز إخراجها نقداً إذا كان أنفع للفقير.</p>
             <p data-i18n="cashOpinion2">الفتوى المعاصرة في كثير من البلدان (مصر، المغرب، الأردن) تجيز إخراج القيمة تيسيراً على الفقراء.</p>
 
-            <!-- لمن تعطى -->
             <h2 data-i18n="recipientsHeading">🎁 لمن تعطى زكاة الفطر؟</h2>
             <p data-i18n="fitrahRecipients">للفقراء والمساكين بالدرجة الأولى، لإغنائهم عن السؤال يوم العيد. قال ﷺ: «أَغْنُوهُمْ عَنِ الطَّوَافِ فِي هَذَا الْيَوْمِ».</p>
 
-            <!-- فتاوى معاصرة -->
             <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
             <p data-i18n="fatwaFitrah1">دار الإفتاء المصرية: 35 جنيهاً للفرد عام 2026 (تعادل 2.04 كجم قمح).</p>
             <p data-i18n="fatwaFitrah2">المجلس العلمي الأعلى المغربي: يوصي بإخراجها طعاماً مع جواز القيمة للحاجة.</p>
+            
+            <!-- زر للاستزادة -->
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D9%81%D8%B7%D8%B1" target="_blank" class="more-info-btn" id="moreInfoBtn">
+                    <span class="material-icons-round">search</span>
+                    <span data-i18n="moreInfo">للاستزادة: المزيد من الفتاوى</span>
+                </a>
+            </div>
         </div>
     </main>
 
     <footer class="footer container">
-        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT">GitHub</a></p>
+        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a><br><span data-i18n="developer">تطوير SalehGNUTUX · مشروع مفتوح المصدر</span></p>
     </footer>
 
     <script>
@@ -132,7 +171,9 @@
                 fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
                 fatwaFitrah1: { ar: "دار الإفتاء المصرية: 35 جنيهاً للفرد عام 2026 (تعادل 2.04 كجم قمح).", en: "Egyptian Dar al-Ifta: 35 EGP per person in 2026 (equivalent to 2.04 kg wheat)." },
                 fatwaFitrah2: { ar: "المجلس العلمي الأعلى المغربي: يوصي بإخراجها طعاماً مع جواز القيمة للحاجة.", en: "Moroccan Supreme Scientific Council: Recommends food, permits cash when needed." },
-                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" }
+                moreInfo: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
+                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" },
+                developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
             };
 
             const themeToggle = document.getElementById('themeToggle');
@@ -162,8 +203,7 @@
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[key] && translations[key][lang]) {
-                        if (el.tagName === 'A') {
-                            el.innerHTML = el.innerHTML.replace(/>.*</, '>' + translations[key][lang] + '<');
+                        if (el.tagName === 'A' && el.classList.contains('nav-button')) {
                         } else {
                             el.innerText = translations[key][lang];
                         }
@@ -176,6 +216,12 @@
                         el.innerText = translations[key][lang];
                     }
                 });
+
+                const moreInfoBtn = document.getElementById('moreInfoBtn');
+                const moreInfoSpan = moreInfoBtn.querySelector('span[data-i18n]');
+                if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
+                    moreInfoSpan.innerText = translations.moreInfo[lang];
+                }
             }
 
             applyLanguage('ar');

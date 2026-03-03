@@ -1,13 +1,51 @@
-<!-- pages/zakat-trade.html -->
+<!-- pages/zakat-trade.html - النسخة النهائية الكاملة -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>زكاة عروض التجارة · GT-ZAKAT</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231e7e6c'>🕌</text></svg>">
+    <!-- أيقونات متعددة المقاسات -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/GT-ZAKAT/GT-ZAKAT-logo/128x128/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/GT-ZAKAT/GT-ZAKAT-logo/256x256/gt-zakat-logo.png">
+    <link rel="apple-touch-icon" href="/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="manifest" href="../manifest.json">
+    <style>
+        .more-info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--md-primary);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: var(--shadow);
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .more-info-btn:hover {
+            background: var(--md-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .more-info-btn .material-icons-round {
+            font-size: 1.2rem;
+        }
+        
+        [dir="ltr"] .more-info-btn {
+            flex-direction: row-reverse;
+        }
+    </style>
 </head>
 <body data-theme="auto">
     <header class="app-bar">
@@ -70,12 +108,20 @@
             <p data-i18n="calcTrade">إذا كان لديك بضاعة للتجارة، ففي نهاية كل حول هجري (من تاريخ بدء التجارة) يجب أن تقوم البضاعة بسعر السوق الحالي، ثم تضمها إلى النقود التي لديك، فإذا بلغ المجموع نصاباً (85 جرام ذهب) فأخرج 2.5% من المجموع.</p>
 
             <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
-            <p data-i18n="fatwaTrade">تقوم عروض التجارة بسعر السوق في نهاية الحول، سواء زادت قيمتها أو نقصت، والعبرة بقيمتها لا برأس مالها. <a href="https://islamweb.net/ar/fatwa/7890" target="_blank" class="source-link">(إسلام ويب)</a></p>
+            <p data-i18n="fatwaTrade">تقوم عروض التجارة بسعر السوق في نهاية الحول، سواء زادت قيمتها أو نقصت، والعبرة بقيمتها لا برأس مالها.</p>
+            
+            <!-- زر للاستزادة -->
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%B9%D8%B1%D9%88%D8%B6+%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D8%A9" target="_blank" class="more-info-btn" id="moreInfoBtn">
+                    <span class="material-icons-round">search</span>
+                    <span data-i18n="moreInfo">للاستزادة: المزيد من الفتاوى</span>
+                </a>
+            </div>
         </div>
     </main>
 
     <footer class="footer container">
-        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT">GitHub</a></p>
+        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a><br><span data-i18n="developer">تطوير SalehGNUTUX · مشروع مفتوح المصدر</span></p>
     </footer>
 
     <script>
@@ -100,7 +146,9 @@
                 calcTrade: { ar: "إذا كان لديك بضاعة للتجارة، ففي نهاية كل حول هجري (من تاريخ بدء التجارة) يجب أن تقوم البضاعة بسعر السوق الحالي، ثم تضمها إلى النقود التي لديك، فإذا بلغ المجموع نصاباً (85 جرام ذهب) فأخرج 2.5% من المجموع.", en: "If you have trade goods, at the end of each lunar year (from the start of trade), value the goods at current market price, add any cash you have, and if the total reaches nisab (85g gold), pay 2.5%." },
                 fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
                 fatwaTrade: { ar: "تقوم عروض التجارة بسعر السوق في نهاية الحول، سواء زادت قيمتها أو نقصت، والعبرة بقيمتها لا برأس مالها.", en: "Trade goods are valued at market price at the end of the year, regardless of increase or decrease; value matters, not cost." },
-                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" }
+                moreInfo: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
+                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" },
+                developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
             };
 
             const themeToggle = document.getElementById('themeToggle');
@@ -130,8 +178,7 @@
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[key] && translations[key][lang]) {
-                        if (el.tagName === 'A') {
-                            el.innerHTML = el.innerHTML.replace(/>.*</, '>' + translations[key][lang] + '<');
+                        if (el.tagName === 'A' && el.classList.contains('nav-button')) {
                         } else {
                             el.innerText = translations[key][lang];
                         }
@@ -144,6 +191,12 @@
                         el.innerText = translations[key][lang];
                     }
                 });
+
+                const moreInfoBtn = document.getElementById('moreInfoBtn');
+                const moreInfoSpan = moreInfoBtn.querySelector('span[data-i18n]');
+                if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
+                    moreInfoSpan.innerText = translations.moreInfo[lang];
+                }
             }
 
             applyLanguage('ar');

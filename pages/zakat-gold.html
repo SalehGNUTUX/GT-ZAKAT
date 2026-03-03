@@ -1,13 +1,52 @@
-<!-- pages/zakat-gold.html -->
+<!-- pages/zakat-gold.html - النسخة النهائية الكاملة -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>زكاة الذهب والفضة · GT-ZAKAT</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231e7e6c'>🕌</text></svg>">
+    <!-- أيقونات متعددة المقاسات -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/GT-ZAKAT/GT-ZAKAT-logo/128x128/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/GT-ZAKAT/GT-ZAKAT-logo/256x256/gt-zakat-logo.png">
+    <link rel="apple-touch-icon" href="/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png">
+    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="manifest" href="../manifest.json">
+    <style>
+        .more-info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--md-primary);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: var(--shadow);
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .more-info-btn:hover {
+            background: var(--md-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .more-info-btn .material-icons-round {
+            font-size: 1.2rem;
+        }
+        
+        [dir="ltr"] .more-info-btn {
+            flex-direction: row-reverse;
+        }
+    </style>
 </head>
 <body data-theme="auto">
     <header class="app-bar">
@@ -44,7 +83,7 @@
                 <span data-i18n="goldTitle">زكاة الذهب والفضة</span>
             </h1>
             <div class="divider"></div>
-
+            
             <h2 data-i18n="quranHeading">📖 النصوص الشرعية</h2>
             <p>
                 <strong data-i18n="quranVerse">الآية:</strong>
@@ -56,7 +95,7 @@
                 <span data-i18n="hadithGold1">«ما من صاحب ذهب ولا فضة لا يؤدي منها حقها إلا إذا كان يوم القيامة صفحت له صفائح من نار...»</span>
                 <a href="https://sunnah.com/muslim:987" target="_blank" class="source-link">(مسلم 987)</a>
             </p>
-
+            
             <h2 data-i18n="madhhabHeading">📜 آراء المذاهب الأربعة</h2>
             <ul style="list-style: none; padding-right:0;">
                 <li><strong>الحنفي:</strong> <span data-i18n="hanafiGold">نصاب الذهب 20 مثقالاً (85 جراماً)، ونصاب الفضة 200 درهم (595 جراماً). الفضة لا تضم إلى الذهب، ويخرج ربع العشر (2.5%).</span></li>
@@ -64,17 +103,25 @@
                 <li><strong>الشافعي:</strong> <span data-i18n="shafiiGold">يضم الذهب إلى الفضة في تكميل النصاب. النصاب 85 جرام ذهب أو 595 فضة.</span></li>
                 <li><strong>الحنبلي:</strong> <span data-i18n="hanbaliGold">يضم الذهب إلى الفضة ولو لم يكمل كل منهما النصاب.</span></li>
             </ul>
-
+            
             <h2 data-i18n="calculationHeading">⚖️ كيفية الحساب</h2>
             <p data-i18n="calcGold">إذا بلغ الذهب 85 جراماً أو الفضة 595 جراماً (أو قيمتهما إذا اختلطا)، فأخرج 2.5% من قيمتهما بسعر السوق يوم الوجوب.</p>
-
+            
             <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
-            <p data-i18n="fatwaGold">الذهب المعد للزينة فيه خلاف: الحنفية يوجبون الزكاة، والجمهور لا يوجبون. الراجح عند كثير من المعاصرين إخراج زكاة الحلي إذا بلغ النصاب وحال الحول، خروجاً من الخلاف. <a href="https://islamqa.info/ar/answers/22375" target="_blank" class="source-link">(الإسلام سؤال وجواب)</a></p>
+            <p data-i18n="fatwaGold">الذهب المعد للزينة فيه خلاف: الحنفية يوجبون الزكاة، والجمهور لا يوجبون. الراجح عند كثير من المعاصرين إخراج زكاة الحلي إذا بلغ النصاب وحال الحول، خروجاً من الخلاف.</p>
+            
+            <!-- زر للاستزادة -->
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D8%B0%D9%87%D8%A8" target="_blank" class="more-info-btn" id="moreInfoBtn">
+                    <span class="material-icons-round">search</span>
+                    <span data-i18n="moreInfo">للاستزادة: المزيد من الفتاوى</span>
+                </a>
+            </div>
         </div>
     </main>
 
     <footer class="footer container">
-        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT">GitHub</a></p>
+        <p><span data-i18n="footer">GT-ZAKAT · جميع النصوص مع مصادرها ·</span> <a href="https://github.com/SalehGNUTUX/GT-ZAKAT" target="_blank">GitHub</a><br><span data-i18n="developer">تطوير SalehGNUTUX · مشروع مفتوح المصدر</span></p>
     </footer>
 
     <script>
@@ -98,7 +145,9 @@
                 calcGold: { ar: "إذا بلغ الذهب 85 جراماً أو الفضة 595 جراماً (أو قيمتهما إذا اختلطا)، فأخرج 2.5% من قيمتهما بسعر السوق يوم الوجوب.", en: "If you own 85g of gold or 595g of silver (or their combined value), pay 2.5% of their market value on the due date." },
                 fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
                 fatwaGold: { ar: "الذهب المعد للزينة فيه خلاف: الحنفية يوجبون الزكاة، والجمهور لا يوجبون. الراجح عند كثير من المعاصرين إخراج زكاة الحلي إذا بلغ النصاب وحال الحول، خروجاً من الخلاف.", en: "There is a difference of opinion regarding jewelry: Hanafis require zakat, while the majority do not. Many contemporary scholars recommend paying zakat on jewelry if it reaches nisab and a year passes, to be safe." },
-                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" }
+                moreInfo: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
+                footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" },
+                developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
             };
 
             const themeToggle = document.getElementById('themeToggle');
@@ -128,9 +177,7 @@
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[key] && translations[key][lang]) {
-                        if (el.tagName === 'A') {
-                            // For navigation links with spans
-                            el.innerHTML = el.innerHTML.replace(/>.*</, '>' + translations[key][lang] + '<');
+                        if (el.tagName === 'A' && el.classList.contains('nav-button')) {
                         } else {
                             el.innerText = translations[key][lang];
                         }
@@ -143,6 +190,12 @@
                         el.innerText = translations[key][lang];
                     }
                 });
+
+                const moreInfoBtn = document.getElementById('moreInfoBtn');
+                const moreInfoSpan = moreInfoBtn.querySelector('span[data-i18n]');
+                if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
+                    moreInfoSpan.innerText = translations.moreInfo[lang];
+                }
             }
 
             applyLanguage('ar');

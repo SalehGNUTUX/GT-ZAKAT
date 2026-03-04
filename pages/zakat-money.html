@@ -1,24 +1,19 @@
-<!-- pages/zakat-money.html - النسخة النهائية الكاملة -->
+<!-- pages/zakat-money.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>زكاة المال · GT-ZAKAT</title>
-    <!-- أيقونات متعددة المقاسات -->
     <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
     <link rel="icon" type="image/png" sizes="128x128" href="/GT-ZAKAT/GT-ZAKAT-logo/128x128/gt-zakat-logo.png">
     <link rel="icon" type="image/png" sizes="256x256" href="/GT-ZAKAT/GT-ZAKAT-logo/256x256/gt-zakat-logo.png">
     <link rel="apple-touch-icon" href="/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png">
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <!-- ملف CSS الرئيسي -->
     <link rel="stylesheet" href="../css/style.css">
-    <!-- ربط manifest (بدون شرطة مائلة) -->
     <link rel="manifest" href="../manifest.json">
     <style>
-        /* أنماط إضافية للأزرار */
         .more-info-btn {
             display: inline-flex;
             align-items: center;
@@ -36,16 +31,13 @@
             border: none;
             cursor: pointer;
         }
-        
         .more-info-btn:hover {
             background: var(--md-primary-dark);
             transform: translateY(-2px);
         }
-        
         .more-info-btn .material-icons-round {
             font-size: 1.2rem;
         }
-        
         [dir="ltr"] .more-info-btn {
             flex-direction: row-reverse;
         }
@@ -71,7 +63,7 @@
     </header>
 
     <main class="container">
-        <!-- أزرار التنقل بين الصفحات -->
+        <!-- أزرار التنقل -->
         <div class="page-navigation">
             <a href="zakat-fitrah.html" class="nav-button">
                 <span class="material-icons-round">arrow_right</span>
@@ -89,7 +81,7 @@
                 <span data-i18n="moneyTitle">زكاة المال (النقود)</span>
             </h1>
             <div class="divider"></div>
-            
+
             <!-- النصوص الشرعية -->
             <h2 data-i18n="quranHeading">📖 النصوص الشرعية</h2>
             <p>
@@ -102,7 +94,7 @@
                 <span data-i18n="hadithMoney1">«بني الإسلام على خمس ... وإيتاء الزكاة»</span>
                 <a href="https://sunnah.com/bukhari:8" target="_blank" class="source-link">(البخاري 8)</a>
             </p>
-            
+
             <!-- آراء المذاهب الأربعة -->
             <h2 data-i18n="madhhabHeading">📜 آراء المذاهب الأربعة</h2>
             <ul style="list-style: none; padding-right:0;">
@@ -111,16 +103,16 @@
                 <li><strong>الشافعي:</strong> <span data-i18n="shafiiMoney">يضم الذهب والفضة والنقود بعضها إلى بعض في تكميل النصاب. ويعتبر الحول من تاريخ بلوغ النصاب.</span></li>
                 <li><strong>الحنبلي:</strong> <span data-i18n="hanbaliMoney">كالشافعي في الضم، وتقوم النقود بسعر الفضة في إخراج الزكاة إذا كان أرفق بالفقراء.</span></li>
             </ul>
-            
+
             <!-- كيفية الحساب -->
             <h2 data-i18n="calculationHeading">⚖️ كيفية الحساب</h2>
             <p data-i18n="calcMoney">إذا ملكت نقوداً بلغت قيمتها 85 جراماً من الذهب (حوالي 7,500 ريال سعودي مثلاً) وحال عليها الحول الهجري، فأخرج 2.5% من قيمتها. يمكن استخدام حاسبة الزكاة في الصفحة الرئيسية.</p>
-            
-            <!-- فتاوى معاصرة مع زر الاستزادة -->
+
+            <!-- فتاوى معاصرة -->
             <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
             <p data-i18n="fatwaMoney">النقود الورقية تعامل معاملة الذهب والفضة في وجوب الزكاة، وتضم إلى سائر الأموال الزكوية.</p>
-            
-            <!-- زر للاستزادة (موحد في كل الصفحات) -->
+
+            <!-- زر للاستزادة -->
             <div style="text-align: center; margin: 20px 0;">
                 <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D9%84" target="_blank" class="more-info-btn" id="moreInfoBtn">
                     <span class="material-icons-round">search</span>
@@ -141,7 +133,6 @@
 
     <script>
         (function() {
-            // قاموس الترجمة الكامل
             const translations = {
                 tagline: { ar: "مرجع زكاة المسلم", en: "Muslim's Zakat Reference" },
                 prevPage: { ar: "السابق: زكاة الفطر", en: "Previous: Zakat al-Fitr" },
@@ -168,24 +159,38 @@
 
             const themeToggle = document.getElementById('themeToggle');
             const langToggle = document.getElementById('langToggle');
-            let currentLang = 'ar';
+            let currentLang = localStorage.getItem('gtzakat_lang') || 'ar';
+            const savedTheme = localStorage.getItem('gtzakat_theme');
 
+            // الوضع المظلم
             function setTheme(theme) {
                 if (theme === 'auto') {
                     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                    const newTheme = prefersDark ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('gtzakat_theme', newTheme);
                 } else {
                     document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('gtzakat_theme', theme);
                 }
             }
-            setTheme('auto');
+
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                setTheme('auto');
+            }
+
             themeToggle.addEventListener('click', () => {
                 const current = document.documentElement.getAttribute('data-theme');
-                document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+                const newTheme = current === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
             });
 
+            // الترجمة
             function applyLanguage(lang) {
                 currentLang = lang;
+                localStorage.setItem('gtzakat_lang', lang);
                 document.documentElement.lang = lang;
                 document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
                 langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
@@ -194,7 +199,6 @@
                     const key = el.getAttribute('data-i18n');
                     if (translations[key] && translations[key][lang]) {
                         if (el.tagName === 'A' && el.classList.contains('nav-button')) {
-                            // معالجة خاصة لأزرار التنقل
                         } else {
                             el.innerText = translations[key][lang];
                         }
@@ -208,15 +212,14 @@
                     }
                 });
 
-                // تحديث زر المزيد
                 const moreInfoBtn = document.getElementById('moreInfoBtn');
-                const moreInfoSpan = moreInfoBtn.querySelector('span[data-i18n]');
+                const moreInfoSpan = moreInfoBtn?.querySelector('span[data-i18n]');
                 if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
                     moreInfoSpan.innerText = translations.moreInfo[lang];
                 }
             }
 
-            applyLanguage('ar');
+            applyLanguage(currentLang);
             langToggle.addEventListener('click', () => {
                 applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
             });

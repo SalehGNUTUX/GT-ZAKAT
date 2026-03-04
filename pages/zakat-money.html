@@ -1,4 +1,4 @@
-<!-- pages/zakat-money.html -->
+<!-- pages/zakat-money.html - النسخة النهائية مع روابط بحث إنجليزية -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -112,11 +112,16 @@
             <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
             <p data-i18n="fatwaMoney">النقود الورقية تعامل معاملة الذهب والفضة في وجوب الزكاة، وتضم إلى سائر الأموال الزكوية.</p>
 
-            <!-- زر للاستزادة -->
+            <!-- زر للاستزادة - مع روابط مزدوجة عربي/إنجليزي -->
             <div style="text-align: center; margin: 20px 0;">
-                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D9%84" target="_blank" class="more-info-btn" id="moreInfoBtn">
+                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D9%84" 
+                   class="more-info-btn" 
+                   id="moreInfoBtnAr" 
+                   data-i18n="moreInfoAr"
+                   data-ar-link="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D9%84"
+                   data-en-link="https://islamqa.info/en/search?q=zakat+on+cash">
                     <span class="material-icons-round">search</span>
-                    <span data-i18n="moreInfo">للاستزادة: المزيد من الفتاوى</span>
+                    <span data-i18n="moreInfoAr">للاستزادة: المزيد من الفتاوى</span>
                 </a>
             </div>
         </div>
@@ -133,6 +138,7 @@
 
     <script>
         (function() {
+            // قاموس الترجمة مع إضافة روابط البحث الإنجليزية
             const translations = {
                 tagline: { ar: "مرجع زكاة المسلم", en: "Muslim's Zakat Reference" },
                 prevPage: { ar: "السابق: زكاة الفطر", en: "Previous: Zakat al-Fitr" },
@@ -152,17 +158,20 @@
                 calcMoney: { ar: "إذا ملكت نقوداً بلغت قيمتها 85 جراماً من الذهب (حوالي 7,500 ريال سعودي مثلاً) وحال عليها الحول الهجري، فأخرج 2.5% من قيمتها. يمكن استخدام حاسبة الزكاة في الصفحة الرئيسية.", en: "If you own cash equivalent to 85 grams of gold (approx. 7,500 SAR) and a lunar year passes, pay 2.5% of its value. Use the zakat calculator on the homepage." },
                 fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
                 fatwaMoney: { ar: "النقود الورقية تعامل معاملة الذهب والفضة في وجوب الزكاة، وتضم إلى سائر الأموال الزكوية.", en: "Paper currency is treated like gold and silver regarding zakat, and it is combined with other zakatable assets." },
-                moreInfo: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
+                moreInfoAr: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
                 footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" },
                 developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
             };
 
             const themeToggle = document.getElementById('themeToggle');
             const langToggle = document.getElementById('langToggle');
+            const moreInfoBtn = document.getElementById('moreInfoBtnAr');
+            
+            // استرجاع اللغة والوضع المحفوظين
             let currentLang = localStorage.getItem('gtzakat_lang') || 'ar';
             const savedTheme = localStorage.getItem('gtzakat_theme');
 
-            // الوضع المظلم
+            // ===== الوضع المظلم مع الحفظ =====
             function setTheme(theme) {
                 if (theme === 'auto') {
                     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -187,7 +196,7 @@
                 setTheme(newTheme);
             });
 
-            // الترجمة
+            // ===== الترجمة مع الحفظ وتحديث رابط البحث =====
             function applyLanguage(lang) {
                 currentLang = lang;
                 localStorage.setItem('gtzakat_lang', lang);
@@ -195,16 +204,15 @@
                 document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
                 langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
 
+                // تحديث جميع عناصر data-i18n
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[key] && translations[key][lang]) {
-                        if (el.tagName === 'A' && el.classList.contains('nav-button')) {
-                        } else {
-                            el.innerText = translations[key][lang];
-                        }
+                        el.innerText = translations[key][lang];
                     }
                 });
 
+                // تحديث أزرار التنقل
                 document.querySelectorAll('.nav-button span[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[key] && translations[key][lang]) {
@@ -212,18 +220,29 @@
                     }
                 });
 
-                const moreInfoBtn = document.getElementById('moreInfoBtn');
-                const moreInfoSpan = moreInfoBtn?.querySelector('span[data-i18n]');
-                if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
-                    moreInfoSpan.innerText = translations.moreInfo[lang];
+                // تحديث رابط البحث حسب اللغة
+                if (moreInfoBtn) {
+                    const arLink = moreInfoBtn.getAttribute('data-ar-link');
+                    const enLink = moreInfoBtn.getAttribute('data-en-link');
+                    moreInfoBtn.href = lang === 'ar' ? arLink : enLink;
+                    
+                    // تحديث نص الزر
+                    const span = moreInfoBtn.querySelector('span[data-i18n]');
+                    if (span && translations.moreInfoAr && translations.moreInfoAr[lang]) {
+                        span.innerText = translations.moreInfoAr[lang];
+                    }
                 }
             }
 
+            // تطبيق اللغة المحفوظة
             applyLanguage(currentLang);
+
+            // حدث تغيير اللغة
             langToggle.addEventListener('click', () => {
                 applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
             });
 
+            // تخزين النص العربي الأصلي للعودة إليه (اختياري)
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 if (!el.hasAttribute('data-ar')) {
                     el.setAttribute('data-ar', el.innerText.trim());

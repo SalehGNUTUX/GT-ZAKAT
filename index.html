@@ -1,30 +1,28 @@
-<!-- index.html - النسخة النهائية مع الشعار النصي وأيقونات المعلومات -->
+<!-- index.html - النسخة النهائية مع حفظ اللغة والوضع المظلم -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GT-ZAKAT · مرجع زكاة المسلم</title>
-    <!-- شعار التبويب (favicon) بصيغة PNG من المسار المطلوب -->
+    <!-- أيقونات متعددة المقاسات -->
     <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/GT-ZAKAT/GT-ZAKAT-logo/192x192/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/GT-ZAKAT/GT-ZAKAT-logo/128x128/gt-zakat-logo.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/GT-ZAKAT/GT-ZAKAT-logo/256x256/gt-zakat-logo.png">
     <link rel="apple-touch-icon" href="/GT-ZAKAT/GT-ZAKAT-logo/512x512/gt-zakat-logo.png">
-    <link rel="manifest" href="/manifest.json">
-
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- ملف CSS الرئيسي -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- manifest للتطبيق (اختياري) -->
-    <link rel="manifest" href="manifest.json">
+    <!-- ربط manifest -->
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body data-theme="auto">
     <header class="app-bar">
         <div class="container">
             <div class="logo-area">
                 <a href="/" class="logo-link" id="logoHome">
-                    <!-- شعار نصي وأيقونة Material (بدون صورة خارجية) -->
                     <span class="material-icons-round logo-icon">account_balance</span>
                     <span class="logo-text">GT-ZAKAT</span>
                 </a>
@@ -208,7 +206,7 @@
                 <p><span data-i18n="nisabSilver">نصاب الفضة (595 جرام):</span> <strong><span id="nisabSilverDisplay">15,470</span></strong> <span id="nisabSilverCurrency">درهم مغربي</span></p>
                 <p id="preferredNisabRow"><span class="material-icons-round" style="font-size:1rem; color:gold;">star</span> <span data-i18n="preferredNisab">النصاب الأحوط (الفضة):</span> <strong><span id="preferredNisabDisplay">15,470</span></strong> <span id="preferredNisabCurrency">درهم مغربي</span></p>
                 <p class="note" id="countrySpecificNote" data-i18n="maNote">* المغرب: يُفضل اعتبار نصاب الفضة (حوالي 2,600 درهم) توسعةً على الفقراء .</p>
-                <p class="note" style="color: var(--md-primary);" id="lastUpdateNote">آخر تحديث: 3/3/2026, 03:00 م</p>
+                <p class="note" style="color: var(--md-primary);" id="lastUpdateNote">آخر تحديث: 4/3/2026, 02:30 م</p>
             </div>
 
             <button class="btn" id="calculateBtn"><span data-i18n="calculate">احسب زكاتك بدقة</span></button>
@@ -246,6 +244,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-
 </body>
 </html>

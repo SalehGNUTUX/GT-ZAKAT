@@ -16,7 +16,8 @@
     <!-- ملف CSS الرئيسي -->
     <link rel="stylesheet" href="css/style.css">
     <!-- ربط manifest -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/GT-ZAKAT/manifest.json">
+
 </head>
 <body data-theme="auto">
     <header class="app-bar">
@@ -244,5 +245,20 @@
     </footer>
 
     <script src="js/script.js"></script>
+
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/GT-ZAKAT/service-worker.js')
+        .then(registration => {
+          console.log('✅ Service Worker registered successfully:', registration.scope);
+        })
+        .catch(error => {
+          console.log('❌ Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+    
 </body>
 </html>

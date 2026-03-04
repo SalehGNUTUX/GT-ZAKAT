@@ -1,14 +1,4 @@
-// js/script.js - GT-ZAKAT v3.0 (الإصدار النهائي مع Fixer.io, GoldAPI, GoldPriceData, ثبات اللغة)
-
-/**
- * النسخة النهائية لمشروع GT-ZAKAT
- * المزايا:
- * - مصادر متعددة للأسعار (Fixer.io للعملات، GoldAPI وGoldPriceData للذهب والفضة)
- * - تخزين مؤقت (Caching) لمدة ساعة لتقليل استهلاك API
- * - ثبات اللغة عبر localStorage
- * - حساب دقيق للنصاب مع مراعاة عيار الذهب والمذهب السائد في البلد
- * - واجهة مستخدم متجاوبة مع الوضع المظلم
- */
+// js/script.js - GT-ZAKAT v3.0 (النسخة النهائية المصححة)
 
 (function() {
     // ========== المتغيرات العامة والإعدادات ==========
@@ -16,7 +6,7 @@
     const FIXER_API_KEY = '22f73cfd86a628868d6ecdf30e6dbf44';      // مفتاح Fixer.io الخاص بالمستخدم
     const GOLD_API_KEY = 'goldapi-du5psmmbyojlc-io';               // مفتاح GoldAPI الخاص بالمستخدم
 
-    // ========== عناصر الصفحة الرئيسية ==========
+    // ========== عناصر الصفحة ==========
     const elements = {
         themeToggle: document.getElementById('themeToggle'),
         langToggle: document.getElementById('langToggle'),
@@ -48,14 +38,13 @@
     };
 
     // ========== حالة التطبيق ==========
-    let currentLang = localStorage.getItem('gtzakat_lang') || 'ar';    // استرجاع اللغة المحفوظة
-    let useManualPrices = false;                                       // وضع الإدخال اليدوي
+    let currentLang = localStorage.getItem('gtzakat_lang') || 'ar';
+    let useManualPrices = false;
     let currentPrices = {
-        gold: 500,        // سعر افتراضي للذهب (درهم/غرام)
-        silver: 26,       // سعر افتراضي للفضة (درهم/غرام)
-        source: 'افتراضي',
-        lastUpdated: new Date(),
-        rates: {}         // أسعار العملات من Fixer.io
+        gold: 500,
+        silver: 26,
+        source: 'auto',
+        lastUpdated: new Date()
     };
 
     // ========== دوال مساعدة ==========
@@ -155,12 +144,9 @@
         if (cached) return cached;
 
         try {
-            // ملاحظة: GoldPriceData لا يوفر API مباشر موثق، لذا هذا المسار وهمي.
-            // يمكن استخدام scraping أو البحث عن API حقيقي.
-            // في حالة عدم وجود API، نترك هذه الدالة ترجع null.
             console.log('🌍 محاولة جلب أسعار من GoldPriceData...');
-            // مثال وهمي - يجب تعديله حسب API الفعلي إن وجد
-            const response = await fetch('https://www.goldpricedata.com/api/gold/usd');
+            // ملاحظة: هذا API تجريبي، قد تحتاج إلى تعديل الرابط
+            const response = await fetch('https://api.goldpricedata.com/v1/gold/latest?apikey=demo');
             if (!response.ok) throw new Error('فشل الاتصال بـ GoldPriceData');
             const data = await response.json();
             const result = {
@@ -190,7 +176,7 @@
         return null;
     }
 
-    // ========== تحديث النصاب الرئيسي ==========
+    // ========== تحديث النصاب الرئيسي (مع التكامل مع Fixer.io و GoldAPI) ==========
     async function updateNisab() {
         const selected = elements.currencySelect.options[elements.currencySelect.selectedIndex];
         const currency = selected.value;
@@ -230,10 +216,7 @@
             // تحويل السعر إلى العملة المحلية باستخدام سعر الصرف من Fixer.io
             let usdToLocal = 1;
             if (fixerRates && fixerRates[currency]) {
-                // Fixer.io يعطي أسعاراً مقارنة باليورو (base هو EUR)، لذا نحتاج لتحويل USD إلى EUR ثم إلى العملة المحلية
-                // الحل: نستخدم endpoint آخر أو نعتمد على EUR كقاعدة.
-                // ولكن تبسيطاً: سنفترض أن fixerRates تحتوي على USD/EUR ثم نحسب.
-                // البيانات المرجعة من fixer.io: rates كلها مقابل EUR.
+                // Fixer.io يعطي أسعاراً مقارنة باليورو (base هو EUR)
                 // نحتاج أولاً لمعرفة سعر USD مقابل EUR، ثم نحول إلى العملة المحلية.
                 const eurToUsd = fixerRates['USD'] ? 1 / fixerRates['USD'] : 1; // إذا كان 1 USD = X EUR، فإن 1 EUR = 1/X USD
                 const localPerEur = fixerRates[currency];
@@ -249,7 +232,6 @@
             currentPrices.gold = goldPriceUSD * usdToLocal;
             currentPrices.silver = silverPriceUSD * usdToLocal;
             currentPrices.source = sourceText;
-            currentPrices.rates = fixerRates || {};
             currentPrices.lastUpdated = new Date();
 
             elements.priceSource.innerText = sourceText;
@@ -285,16 +267,11 @@
         const madhhab = selected.dataset.madhhab || 'maliki';
         elements.madhhabTabs.forEach(tab => {
             tab.classList.remove('active');
-            if (tab.dataset.madhhab === madhhab) {
-                tab.classList.add('active');
-            }
+            if (tab.dataset.madhhab === madhhab) tab.classList.add('active');
         });
 
         // تحديث ملاحظة البلد (اختياري)
-        if (elements.countryNote) {
-            const noteKey = `${country}Note`;
-            // يمكن إضافة ملاحظات مخصصة لكل بلد إن وجدت
-        }
+        updateCountryNote();
 
         // تحديث تاريخ آخر تحديث
         if (currentPrices.lastUpdated) {
@@ -313,7 +290,7 @@
         const goldCarats = parseInt(selected.dataset.goldCarats) || 24;
         const currency = selected.value;
 
-        // تعديل وزن الذهب حسب العيار (إذا كان الذهب أقل من 24 قيراط، يقل الوزن الفعلي)
+        // تعديل وزن الذهب حسب العيار
         const goldPureWeight = gold * (goldCarats / 24);
         const goldValue = goldPureWeight * currentPrices.gold;
         const silverValue = silver * currentPrices.silver;
@@ -370,6 +347,17 @@
         }
     }
 
+    // ========== تحديث ملاحظة البلد ==========
+    function updateCountryNote() {
+        const selected = elements.currencySelect.options[elements.currencySelect.selectedIndex];
+        const country = selected.dataset.country;
+        let noteKey = 'maNote';
+        if (country === 'dz') noteKey = 'dzNote';
+        else if (country === 'tn') noteKey = 'tnNote';
+        else noteKey = 'maNote';
+        // يمكن إضافة ملاحظات مخصصة لكل بلد في future
+    }
+
     // ========== إدارة اللغة (مع localStorage) ==========
     function applyLanguage(lang) {
         currentLang = lang;
@@ -378,14 +366,28 @@
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         elements.langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
 
-        // تحديث جميع عناصر data-i18n (إذا وجدت في الصفحة)
+        // تحديث جميع عناصر data-i18n في الصفحة (إذا وجدت)
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            // يمكن استخدام قاموس ترجمة مركزي، لكن هنا نعتمد على الترجمة اليدوية في الصفحات
-            // سنترك هذا الجزء للصفحات الفرعية التي تحتوي على سكربت الترجمة الخاص بها.
+            // يمكن استخدام قاموس الترجمة الموجود في النسخة الأصلية
+            if (translations[key] && translations[key][lang]) {
+                el.innerText = translations[key][lang];
+            }
         });
 
-        // تحديث النصوص في الأزرار الثابتة (اختياري)
+        // تحديث بطاقات الزكاة
+        document.querySelectorAll('.zakat-card h3').forEach((el, i) => {
+            const keys = ['moneyOption', 'goldOption', 'grainsOption', 'salaryOption', 'tradeOption', 'fitrahOption'];
+            if (keys[i] && translations[keys[i]] && translations[keys[i]][lang])
+                el.innerText = translations[keys[i]][lang];
+        });
+        document.querySelectorAll('.zakat-card p').forEach((el, i) => {
+            const keys = ['moneyDesc', 'goldDesc', 'grainsDesc', 'salaryDesc', 'tradeDesc', 'fitrahDesc'];
+            if (keys[i] && translations[keys[i]] && translations[keys[i]][lang])
+                el.innerText = translations[keys[i]][lang];
+        });
+
+        // تحديث status
         if (elements.updateStatus) {
             elements.updateStatus.innerText = lang === 'ar' ? '✓ محدث' : '✓ Updated';
         }

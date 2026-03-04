@@ -1,6 +1,6 @@
-// js/script.js - الإصدار المستقر مع إضافة الميزات الجديدة تدريجياً
+// js/script.js - GT-ZAKAT v4.0 (الإصدار النهائي مع حفظ اللغة والوضع المظلم)
 (function() {
-    // ========== دوال مساعدة أساسية (من النسخة العاملة) ==========
+    // ========== دوال مساعدة أساسية ==========
     function formatNumber(num) {
         if (num === undefined || num === null) return '';
         return num.toLocaleString('en-US', { maximumFractionDigits: 2, minimumFractionDigits: 0 });
@@ -11,7 +11,7 @@
                date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
     }
 
-    // ========== قاموس الترجمة الكامل (من النسخة العاملة) ==========
+    // ========== قاموس الترجمة الكامل ==========
     const translations = {
         tagline: { ar: "مرجع زكاة المسلم", en: "Muslim's Zakat Reference" },
         since: { ar: "منذ 2026 · المرجع الشامل للزكاة", en: "Since 2026 · The Comprehensive Zakat Reference" },
@@ -69,7 +69,7 @@
         developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
     };
 
-    // ========== عناصر الصفحة (من النسخة العاملة) ==========
+    // ========== عناصر الصفحة ==========
     const themeToggle = document.getElementById('themeToggle');
     const langToggle = document.getElementById('langToggle');
     const logoHome = document.getElementById('logoHome');
@@ -99,12 +99,12 @@
     const manualSilverPrice = document.getElementById('manualSilverPrice');
 
     // ========== متغيرات الحالة ==========
-    let currentLang = localStorage.getItem('gtzakat_lang') || 'ar'; // استخدام localStorage لتخزين اللغة
+    let currentLang = localStorage.getItem('gtzakat_lang') || 'ar';
     let useManualPrices = false;
     let currentPrices = { gold: 500, silver: 26, source: 'auto', lastUpdated: new Date() };
 
     // ========== نظام التخزين المؤقت (Cache) ==========
-    const CACHE_DURATION = 60 * 60 * 1000; // 60 دقيقة
+    const CACHE_DURATION = 6 * 60 * 60 * 1000; // 6 ساعات بالمللي ثانية
     const FIXER_API_KEY = '22f73cfd86a628868d6ecdf30e6dbf44';
     const GOLD_API_KEY = 'goldapi-du5psmmbyojlc-io';
 
@@ -127,66 +127,90 @@
         localStorage.setItem(key, JSON.stringify({ timestamp: Date.now(), data }));
     }
 
-    // جلب أسعار العملات من Fixer.io
+    // ========== جلب أسعار العملات من Fixer.io ==========
     async function fetchFixerRates() {
         const cacheKey = 'fixer_rates';
         const cached = getCachedData(cacheKey);
-        if (cached) return cached;
+        if (cached) {
+            console.log('📦 استخدام أسعار Fixer.io من الذاكرة المؤقتة');
+            return cached;
+        }
 
         try {
+            console.log('🌍 جلب أسعار جديدة من Fixer.io...');
             const response = await fetch(`https://data.fixer.io/api/latest?access_key=${FIXER_API_KEY}&format=1`);
-            if (!response.ok) throw new Error('فشل الاتصال');
+            if (!response.ok) throw new Error('فشل الاتصال بـ Fixer.io');
             const data = await response.json();
             if (data.success) {
                 setCachedData(cacheKey, data.rates);
+                console.log('✅ تم تحديث أسعار Fixer.io');
                 return data.rates;
+            } else {
+                throw new Error(data.error?.info || 'خطأ في استجابة Fixer.io');
             }
-        } catch (e) {
-            console.error('خطأ في جلب Fixer.io:', e);
+        } catch (error) {
+            console.error('❌ خطأ في جلب أسعار Fixer.io:', error);
+            return null;
         }
-        return null;
     }
 
-    // جلب أسعار الذهب من GoldAPI
+    // ========== جلب أسعار الذهب والفضة من GoldAPI ==========
     async function fetchGoldPrice() {
         const cacheKey = 'gold_price';
         const cached = getCachedData(cacheKey);
-        if (cached) return cached;
+        if (cached) {
+            console.log('📦 استخدام أسعار GoldAPI من الذاكرة المؤقتة');
+            return cached;
+        }
 
         try {
+            console.log('🌍 جلب أسعار جديدة من GoldAPI...');
             const response = await fetch('https://www.goldapi.io/api/XAU/USD', {
                 headers: { 'x-access-token': GOLD_API_KEY }
             });
-            if (!response.ok) throw new Error('فشل الاتصال');
+            if (!response.ok) throw new Error('فشل الاتصال بـ GoldAPI');
             const data = await response.json();
             const result = {
                 gold: data.price_gram_24k,
                 silver: data.price_gram_silver || data.price_gram_24k * 0.018
             };
             setCachedData(cacheKey, result);
+            console.log('✅ تم تحديث أسعار GoldAPI');
             return result;
-        } catch (e) {
-            console.error('خطأ في جلب GoldAPI:', e);
+        } catch (error) {
+            console.error('❌ خطأ في جلب أسعار GoldAPI:', error);
+            return null;
         }
-        return null;
     }
 
-    // ========== الوضع المظلم ==========
+    // ========== الوضع المظلم مع الحفظ ==========
     function setTheme(theme) {
         if (theme === 'auto') {
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+            const newTheme = prefersDark ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('gtzakat_theme', newTheme);
         } else {
             document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('gtzakat_theme', theme);
         }
     }
-    setTheme('auto');
+
+    // تطبيق الوضع المحفوظ أو الافتراضي
+    const savedTheme = localStorage.getItem('gtzakat_theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        setTheme('auto');
+    }
+
     themeToggle.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-theme');
-        document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
     });
 
-    // ========== إدارة اللغة (مع localStorage) ==========
+    // ========== إدارة اللغة مع الحفظ ==========
     function applyLanguage(lang) {
         currentLang = lang;
         localStorage.setItem('gtzakat_lang', lang);
@@ -194,7 +218,7 @@
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
 
-        // تحديث كل العناصر التي تحمل data-i18n
+        // تحديث جميع العناصر التي تحمل data-i18n
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[key] && translations[key][lang]) {
@@ -230,7 +254,7 @@
         }
     }
 
-    // ========== تحديث النصاب (مع محاولة جلب البيانات الحية) ==========
+    // ========== تحديث النصاب ==========
     async function updateNisab() {
         const selected = currencySelect.options[currencySelect.selectedIndex];
         const goldCarats = parseInt(selected.dataset.goldCarats) || 24;
@@ -247,9 +271,8 @@
             updateStatus.innerText = currentLang === 'ar' ? 'جاري التحديث...' : 'Updating...';
             updateStatus.style.background = 'orange';
 
-            // جلب أسعار العملات
+            // جلب أسعار العملات والذهب
             const fixerRates = await fetchFixerRates();
-            // جلب أسعار الذهب
             const metalPrices = await fetchGoldPrice();
 
             if (metalPrices && fixerRates) {
@@ -263,6 +286,11 @@
                     silverPrice = metalPrices.silver * usdToLocal;
                     sourceText = 'GoldAPI + Fixer.io';
                 }
+            } else if (metalPrices) {
+                // إذا لم تكن أسعار العملات متوفرة، استخدم سعر صرف تقريبي
+                goldPrice = metalPrices.gold * 10; // افتراض أن 1 دولار = 10 وحدات محلية (تقديري)
+                silverPrice = metalPrices.silver * 10;
+                sourceText = 'GoldAPI (سعر صرف تقريبي)';
             } else {
                 sourceText = 'افتراضي (تعذر الاتصال)';
             }
@@ -406,9 +434,14 @@
 
     // ========== التهيئة ==========
     async function init() {
-        applyLanguage(currentLang); // استرجاع اللغة المحفوظة
-        await updateNisab(); // تحديث الأسعار
-        setInterval(updateNisab, 10 * 60 * 1000); // تحديث كل 10 دقائق
+        // استرجاع اللغة المحفوظة وتطبيقها
+        applyLanguage(localStorage.getItem('gtzakat_lang') || 'ar');
+        
+        // تحديث الأسعار
+        await updateNisab();
+        
+        // تحديث كل 6 ساعات (بدلاً من 10 دقائق)
+        setInterval(updateNisab, CACHE_DURATION);
     }
 
     init();

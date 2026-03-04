@@ -1,4 +1,4 @@
-<!-- pages/zakat-gold.html -->
+<!-- pages/zakat-gold.html - النسخة النهائية مع روابط بحث إنجليزية -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -106,9 +106,13 @@
             <p data-i18n="fatwaGold">الذهب المعد للزينة فيه خلاف: الحنفية يوجبون الزكاة، والجمهور لا يوجبون. الراجح عند كثير من المعاصرين إخراج زكاة الحلي إذا بلغ النصاب وحال الحول، خروجاً من الخلاف.</p>
 
             <div style="text-align: center; margin: 20px 0;">
-                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D8%B0%D9%87%D8%A8" target="_blank" class="more-info-btn" id="moreInfoBtn">
+                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D8%B0%D9%87%D8%A8" 
+                   class="more-info-btn" 
+                   id="moreInfoBtnAr"
+                   data-ar-link="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D8%B0%D9%87%D8%A8"
+                   data-en-link="https://islamqa.info/en/search?q=zakat+on+gold">
                     <span class="material-icons-round">search</span>
-                    <span data-i18n="moreInfo">للاستزادة: المزيد من الفتاوى</span>
+                    <span data-i18n="moreInfoAr">للاستزادة: المزيد من الفتاوى</span>
                 </a>
             </div>
         </div>
@@ -139,13 +143,15 @@
                 calcGold: { ar: "إذا بلغ الذهب 85 جراماً أو الفضة 595 جراماً (أو قيمتهما إذا اختلطا)، فأخرج 2.5% من قيمتهما بسعر السوق يوم الوجوب.", en: "If you own 85g of gold or 595g of silver (or their combined value), pay 2.5% of their market value on the due date." },
                 fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
                 fatwaGold: { ar: "الذهب المعد للزينة فيه خلاف: الحنفية يوجبون الزكاة، والجمهور لا يوجبون. الراجح عند كثير من المعاصرين إخراج زكاة الحلي إذا بلغ النصاب وحال الحول، خروجاً من الخلاف.", en: "There is a difference of opinion regarding jewelry: Hanafis require zakat, while the majority do not. Many contemporary scholars recommend paying zakat on jewelry if it reaches nisab and a year passes, to be safe." },
-                moreInfo: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
+                moreInfoAr: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
                 footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" },
                 developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
             };
 
             const themeToggle = document.getElementById('themeToggle');
             const langToggle = document.getElementById('langToggle');
+            const moreInfoBtn = document.getElementById('moreInfoBtnAr');
+            
             let currentLang = localStorage.getItem('gtzakat_lang') || 'ar';
             const savedTheme = localStorage.getItem('gtzakat_theme');
 
@@ -197,10 +203,16 @@
                     }
                 });
 
-                const moreInfoBtn = document.getElementById('moreInfoBtn');
-                const moreInfoSpan = moreInfoBtn?.querySelector('span[data-i18n]');
-                if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
-                    moreInfoSpan.innerText = translations.moreInfo[lang];
+                // تحديث رابط البحث حسب اللغة
+                if (moreInfoBtn) {
+                    const arLink = moreInfoBtn.getAttribute('data-ar-link');
+                    const enLink = moreInfoBtn.getAttribute('data-en-link');
+                    moreInfoBtn.href = lang === 'ar' ? arLink : enLink;
+                    
+                    const span = moreInfoBtn.querySelector('span[data-i18n]');
+                    if (span && translations.moreInfoAr && translations.moreInfoAr[lang]) {
+                        span.innerText = translations.moreInfoAr[lang];
+                    }
                 }
             }
 

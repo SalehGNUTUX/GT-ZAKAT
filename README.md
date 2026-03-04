@@ -126,35 +126,6 @@ chromium index.html
 2. اضغط على القائمة (ثلاث نقاط)
 3. اختر "تثبيت التطبيق"
 
-## 🐧 تحويل الموقع إلى تطبيق سطح مكتب
-
-### باستخدام Nativefier (الأسهل)
-```bash
-# تثبيت Nativefier
-sudo npm install -g nativefier
-
-# إنشاء AppImage
-nativefier --name "GT-ZAKAT" --platform linux "https://salehgnutux.github.io/GT-ZAKAT/" --icon "GT-ZAKAT-logo/512x512/gt-zakat-logo.png"
-
-# تشغيل التطبيق
-./GT-ZAKAT-linux-x64/GT-ZAKAT
-```
-
-### باستخدام Electron (للتحكم الكامل)
-```bash
-# إنشاء مجلد المشروع
-mkdir GT-ZAKAT-electron
-cd GT-ZAKAT-electron
-npm init -y
-npm install electron electron-builder --save-dev
-
-# انسخ ملفات الموقع إلى مجلد src/
-cp -r ../GT-ZAKAT/* src/
-
-# أنشئ ملف main.js (انظر المثال في الوثائق)
-# ثم ابنِ التطبيق
-npm run dist
-```
 
 ## 👨‍💻 المطور
 

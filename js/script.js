@@ -4,7 +4,7 @@
     // ========== المتغيرات العامة ==========
     const CACHE_DURATION = 60 * 60 * 1000; // 60 دقيقة بالمللي ثانية
     const FIXER_API_KEY = '22f73cfd86a628868d6ecdf30e6dbf44';
-    const GOLD_API_KEY = 'goldapi-3s7d9f8h3k2l5j1n'; // مفتاح تجريبي - استبدله بمفتاحك الحقيقي
+    const GOLD_API_KEY = 'goldapi-du5psmmbyojlc-io'; // مفتاح تجريبي - استبدله بمفتاحك الحقيقي
 
     // ========== عناصر الصفحة ==========
     const elements = {

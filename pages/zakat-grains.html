@@ -1,11 +1,10 @@
-<!-- pages/zakat-grains.html - النسخة النهائية الكاملة -->
+<!-- pages/zakat-grains.html - النسخة النهائية مع روابط بحث إنجليزية -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>زكاة الحبوب والثمار · GT-ZAKAT</title>
-    <!-- أيقونات متعددة المقاسات -->
     <link rel="icon" type="image/png" sizes="16x16" href="/GT-ZAKAT/GT-ZAKAT-logo/16x16/gt-zakat-logo.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/GT-ZAKAT/GT-ZAKAT-logo/32x32/gt-zakat-logo.png">
     <link rel="icon" type="image/png" sizes="128x128" href="/GT-ZAKAT/GT-ZAKAT-logo/128x128/gt-zakat-logo.png">
@@ -32,16 +31,13 @@
             border: none;
             cursor: pointer;
         }
-        
         .more-info-btn:hover {
             background: var(--md-primary-dark);
             transform: translateY(-2px);
         }
-        
         .more-info-btn .material-icons-round {
             font-size: 1.2rem;
         }
-        
         [dir="ltr"] .more-info-btn {
             flex-direction: row-reverse;
         }
@@ -108,12 +104,16 @@
 
             <h2 data-i18n="fatwaHeading">📚 فتاوى معاصرة</h2>
             <p data-i18n="fatwaGrains">الوسق = 60 صاعاً، والصاع ≈ 2.176 كغ، فالنصاب ≈ 653 كغ. يخرج من الحب بعد تصفيته.</p>
-            
-            <!-- زر للاستزادة -->
+
+            <!-- زر للاستزادة مع روابط مزدوجة -->
             <div style="text-align: center; margin: 20px 0;">
-                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D8%B2%D8%B1%D9%88%D8%B9" target="_blank" class="more-info-btn" id="moreInfoBtn">
+                <a href="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8" 
+                   class="more-info-btn" 
+                   id="moreInfoBtnAr"
+                   data-ar-link="https://islamqa.info/ar/search?q=%D8%B2%D9%83%D8%A7%D8%A9+%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8"
+                   data-en-link="https://islamqa.info/en/search?q=zakat+on+grains">
                     <span class="material-icons-round">search</span>
-                    <span data-i18n="moreInfo">للاستزادة: المزيد من الفتاوى</span>
+                    <span data-i18n="moreInfoAr">للاستزادة: المزيد من الفتاوى</span>
                 </a>
             </div>
         </div>
@@ -144,31 +144,45 @@
                 calcGrains: { ar: "إذا بلغ المحصول 5 أوسق (653 كغ تقريباً)، فتجب الزكاة. السقي بلا مؤونة: العشر (10%)، بمؤونة: نصف العشر (5%)، بالمشاركة: ثلاثة أرباع العشر (7.5%).", en: "If the harvest reaches 5 wasq (approx. 653 kg), zakat is due. Rain-fed: 10%, irrigated: 5%, mixed: 7.5%." },
                 fatwaHeading: { ar: "📚 فتاوى معاصرة", en: "📚 Contemporary Fatawa" },
                 fatwaGrains: { ar: "الوسق = 60 صاعاً، والصاع ≈ 2.176 كغ، فالنصاب ≈ 653 كغ. يخرج من الحب بعد تصفيته.", en: "Wasq = 60 sa', sa' ≈ 2.176 kg, so nisab ≈ 653 kg. It is given from cleaned grains." },
-                moreInfo: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
+                moreInfoAr: { ar: "للاستزادة: المزيد من الفتاوى", en: "More Info: Additional Fatawa" },
                 footer: { ar: "GT-ZAKAT · جميع النصوص مع مصادرها ·", en: "GT-ZAKAT · All texts with their sources ·" },
                 developer: { ar: "تطوير SalehGNUTUX · مشروع مفتوح المصدر", en: "Developed by SalehGNUTUX · Open Source Project" }
             };
 
             const themeToggle = document.getElementById('themeToggle');
             const langToggle = document.getElementById('langToggle');
-            let currentLang = 'ar';
+            const moreInfoBtn = document.getElementById('moreInfoBtnAr');
+            
+            let currentLang = localStorage.getItem('gtzakat_lang') || 'ar';
+            const savedTheme = localStorage.getItem('gtzakat_theme');
 
             function setTheme(theme) {
                 if (theme === 'auto') {
                     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                    const newTheme = prefersDark ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('gtzakat_theme', newTheme);
                 } else {
                     document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('gtzakat_theme', theme);
                 }
             }
-            setTheme('auto');
+
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                setTheme('auto');
+            }
+
             themeToggle.addEventListener('click', () => {
                 const current = document.documentElement.getAttribute('data-theme');
-                document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+                const newTheme = current === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
             });
 
             function applyLanguage(lang) {
                 currentLang = lang;
+                localStorage.setItem('gtzakat_lang', lang);
                 document.documentElement.lang = lang;
                 document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
                 langToggle.innerText = lang === 'ar' ? 'English' : 'العربية';
@@ -190,14 +204,19 @@
                     }
                 });
 
-                const moreInfoBtn = document.getElementById('moreInfoBtn');
-                const moreInfoSpan = moreInfoBtn.querySelector('span[data-i18n]');
-                if (moreInfoSpan && translations.moreInfo && translations.moreInfo[lang]) {
-                    moreInfoSpan.innerText = translations.moreInfo[lang];
+                if (moreInfoBtn) {
+                    const arLink = moreInfoBtn.getAttribute('data-ar-link');
+                    const enLink = moreInfoBtn.getAttribute('data-en-link');
+                    moreInfoBtn.href = lang === 'ar' ? arLink : enLink;
+                    
+                    const span = moreInfoBtn.querySelector('span[data-i18n]');
+                    if (span && translations.moreInfoAr && translations.moreInfoAr[lang]) {
+                        span.innerText = translations.moreInfoAr[lang];
+                    }
                 }
             }
 
-            applyLanguage('ar');
+            applyLanguage(currentLang);
             langToggle.addEventListener('click', () => {
                 applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
             });

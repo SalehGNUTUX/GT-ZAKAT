@@ -1,4 +1,6 @@
-/* css/style.css - تحديث لدعم الشعار النصي وأيقونات المعلومات */
+/* ===== GT-ZAKAT - ملف الأنماط الرئيسي (النسخة النهائية المتجاوبة) ===== */
+
+/* ===== الخط المخصص ===== */
 @font-face {
     font-family: 'Ubuntu Arabic';
     src: url('../fonts/Ubuntu Arabic Regular.otf') format('opentype');
@@ -7,6 +9,7 @@
     font-display: swap;
 }
 
+/* ===== RESET & المتغيرات العامة ===== */
 * {
     margin: 0;
     padding: 0;
@@ -15,9 +18,12 @@
 }
 
 :root {
+    /* الألوان الأساسية */
     --md-primary: #1e7e6c;
     --md-primary-light: #4b9b8a;
     --md-primary-dark: #0e5244;
+    
+    /* الوضع الفاتح */
     --bg: #f8f9fa;
     --surface: #ffffff;
     --text: #1f1f1f;
@@ -43,6 +49,7 @@
     --tooltip-bg: #2a2a2a;
 }
 
+/* ===== التخطيط الأساسي ===== */
 body {
     font-family: 'Ubuntu Arabic', 'Roboto', sans-serif;
     background: var(--bg);
@@ -183,7 +190,7 @@ body {
     background: var(--md-primary-dark);
 }
 
-/* ===== باقي الأنماط (كما هي) ===== */
+/* ===== القسم الترحيبي ===== */
 .hero {
     text-align: center;
     margin: 32px 0 20px;
@@ -206,6 +213,7 @@ body {
     margin-bottom: 16px;
 }
 
+/* ===== البطاقات ===== */
 .card {
     background: var(--card-bg);
     border-radius: 24px;
@@ -235,6 +243,7 @@ body {
     margin: 20px 0;
 }
 
+/* ===== بطاقات الزكاة ===== */
 .zakat-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -300,6 +309,7 @@ body {
     margin: 0;
 }
 
+/* ===== علامات التبويب ===== */
 .madhhab-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -330,6 +340,7 @@ body {
     border-color: var(--md-primary);
 }
 
+/* ===== حقول الإدخال ===== */
 .input-field, .currency-select {
     width: 100%;
     padding: 14px 16px;
@@ -353,6 +364,21 @@ body {
     text-align: right;
 }
 
+.input-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.input-group .input-field {
+    flex: 2;
+}
+
+.input-group .currency-select {
+    flex: 1;
+    min-width: 140px;
+}
+
 label {
     font-weight: 500;
     color: var(--text-secondary);
@@ -360,6 +386,7 @@ label {
     margin-bottom: 4px;
 }
 
+/* ===== الأزرار ===== */
 .btn {
     background: var(--md-primary);
     color: white;
@@ -400,6 +427,7 @@ label {
     color: white;
 }
 
+/* ===== نتائج الحساب ===== */
 .result-box {
     background: var(--result-bg);
     padding: 20px;
@@ -419,6 +447,7 @@ label {
     color: var(--text-secondary);
 }
 
+/* ===== روابط المصادر ===== */
 .source-link {
     color: var(--md-primary);
     text-decoration: none;
@@ -432,6 +461,7 @@ label {
     border-bottom-style: solid;
 }
 
+/* ===== أزرار التنقل بين الصفحات ===== */
 .page-navigation {
     display: flex;
     justify-content: space-between;
@@ -469,6 +499,7 @@ label {
     background: var(--text-secondary);
 }
 
+/* ===== معلومات النصاب ===== */
 .nisab-info {
     background: var(--hover-bg);
     padding: 16px;
@@ -482,6 +513,7 @@ label {
     text-align: right;
 }
 
+/* ===== Tooltip ===== */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -515,6 +547,7 @@ label {
     opacity: 1;
 }
 
+/* ===== الإدخال اليدوي ===== */
 .manual-price-input {
     display: flex;
     gap: 10px;
@@ -540,6 +573,7 @@ label {
     direction: ltr;
 }
 
+/* ===== الشارات ===== */
 .price-source-badge {
     font-size: 0.8rem;
     padding: 4px 8px;
@@ -550,6 +584,7 @@ label {
     display: inline-block;
 }
 
+/* ===== القوائم ===== */
 ul {
     list-style: none;
     padding-right: 0;
@@ -569,6 +604,7 @@ ul li::before {
     right: 0;
 }
 
+/* ===== تذييل الصفحة ===== */
 .footer {
     text-align: center;
     margin-top: 48px;
@@ -587,7 +623,7 @@ ul li::before {
     text-decoration: underline;
 }
 
-/* تحسينات للغة الإنجليزية */
+/* ===== تحسينات للغة الإنجليزية ===== */
 [dir="ltr"] {
     direction: ltr;
 }
@@ -621,7 +657,7 @@ ul li::before {
     text-align: left;
 }
 
-[dir="ltr"] .input-field,
+[dir="ltr"] .input-field, 
 [dir="ltr"] .currency-select {
     text-align: left;
 }
@@ -635,78 +671,7 @@ ul li::before {
     transform: translateX(0);
 }
 
-/* تحسينات للشاشات الصغيرة */
-@media (max-width: 700px) {
-    .container {
-        padding: 0 16px;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .logo-area {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-    }
-
-    .tagline {
-        font-size: 0.8rem;
-        white-space: normal;
-        margin-right: 0;
-        border-right: none;
-        padding-right: 0;
-    }
-
-    [dir="ltr"] .tagline {
-        margin-left: 0;
-        border-left: none;
-        padding-left: 0;
-    }
-
-    .actions {
-        width: 100%;
-        justify-content: flex-end;
-    }
-
-    .input-group {
-        flex-direction: column;
-    }
-
-    .input-group .currency-select {
-        width: 100%;
-    }
-
-    .page-navigation {
-        flex-direction: column;
-    }
-
-    .nav-button {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .zakat-cards-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 12px;
-    }
-
-    .zakat-card {
-        padding: 16px 8px;
-    }
-
-    .manual-price-input {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .manual-price-input input {
-        width: 100%;
-    }
-}
-
-/* تحسينات الوضع المظلم */
+/* ===== تحسينات الوضع المظلم ===== */
 [data-theme="dark"] .logo-text {
     background: linear-gradient(145deg, #4b9b8a, #1e7e6c);
     -webkit-background-clip: text;
@@ -725,6 +690,7 @@ ul li::before {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
+/* ===== تحسينات عامة ===== */
 .note {
     font-size: 0.85rem;
     color: var(--text-secondary);
@@ -739,4 +705,233 @@ ul li::before {
 /* ضمان ظهور الأرقام بالشكل الغربي */
 input, select, button, .result-box, .nisab-info p, .price-source-badge, #lastUpdateNote {
     font-feature-settings: "tnum";
+}
+
+/* ===== تحسينات متقدمة للشاشات الصغيرة (Responsive) ===== */
+
+/* للشاشات الصغيرة جداً (أقل من 400px) */
+@media (max-width: 400px) {
+    .app-bar .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    
+    .logo-area {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .logo-link {
+        flex-shrink: 0;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+        margin-right: 4px;
+        padding-right: 4px;
+        white-space: normal;
+        text-align: left;
+        flex: 1;
+    }
+    
+    .actions {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .action-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .lang-toggle {
+        min-width: 80px;
+        font-size: 0.9rem;
+        padding: 0 8px;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .badge {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+}
+
+/* للشاشات المتوسطة (بين 401px و 600px) */
+@media (min-width: 401px) and (max-width: 600px) {
+    .app-bar .container {
+        flex-wrap: wrap;
+    }
+    
+    .logo-area {
+        flex: 1 1 auto;
+    }
+    
+    .actions {
+        flex: 0 0 auto;
+    }
+    
+    .tagline {
+        white-space: normal;
+        font-size: 0.85rem;
+    }
+}
+
+/* تحسينات إضافية لبطاقات الزكاة على الهاتف */
+@media (max-width: 600px) {
+    .zakat-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .zakat-card {
+        padding: 16px 8px;
+    }
+    
+    .zakat-card .material-icons-round {
+        font-size: 2.2rem;
+    }
+    
+    .zakat-card h3 {
+        font-size: 1rem;
+    }
+    
+    .zakat-card p {
+        font-size: 0.8rem;
+    }
+    
+    .card {
+        padding: 16px;
+    }
+    
+    .card h2 {
+        font-size: 1.3rem;
+    }
+    
+    .input-field, .currency-select {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .madhhab-tabs {
+        gap: 4px;
+    }
+    
+    .madhhab-tab {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .result-box {
+        padding: 16px;
+        font-size: 1rem;
+    }
+    
+    .page-navigation {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .nav-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة جداً (أقل من 350px) */
+@media (max-width: 350px) {
+    .logo-area {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .tagline {
+        margin-right: 0;
+        border-right: none;
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    [dir="ltr"] .tagline {
+        margin-left: 0;
+        border-left: none;
+        padding-left: 0;
+    }
+    
+    .actions {
+        justify-content: center;
+    }
+    
+    .zakat-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .currency-select {
+        font-size: 0.85rem;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .input-group .currency-select {
+        width: 100%;
+    }
+}
+
+/* تحسينات للغة الإنجليزية على الهاتف */
+@media (max-width: 400px) {
+    [dir="ltr"] .logo-area {
+        justify-content: space-between;
+    }
+    
+    [dir="ltr"] .tagline {
+        margin-left: 4px;
+        padding-left: 4px;
+        text-align: right;
+    }
+}
+
+/* تحسينات لأزرار المعلومات على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .more-info-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .tooltip .tooltip-text {
+        width: 200px;
+        font-size: 0.75rem;
+    }
+}
+
+/* تحسينات للشاشات المتوسطة */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .zakat-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
